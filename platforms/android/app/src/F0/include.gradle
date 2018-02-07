@@ -1,0 +1,15 @@
+android {
+	productFlavors {
+		"nativescript-pro-ui" {
+			dimension "nativescript-pro-ui"
+		}
+	}
+}
+
+def supportVersion = project.hasProperty("supportVersion") ? project.supportVersion : "23.1.0"
+
+dependencies {
+	compile "com.android.support:appcompat-v7:$supportVersion"
+	compile "com.android.support:recyclerview-v7:$supportVersion"
+	compile "com.android.support:design:$supportVersion"
+}

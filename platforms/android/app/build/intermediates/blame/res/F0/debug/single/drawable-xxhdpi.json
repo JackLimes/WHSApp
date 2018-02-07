@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "C:\\Users\\Nanow\\NativeScript_Projects\\newWHS\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-xxhdpi\\logo.png",
+        "source": "C:\\Users\\Nanow\\NativeScript_Projects\\newWHS\\platforms\\android\\app\\src\\main\\res\\drawable-xxhdpi\\logo.png"
+    },
+    {
+        "merged": "C:\\Users\\Nanow\\NativeScript_Projects\\newWHS\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-xxhdpi\\background.png",
+        "source": "C:\\Users\\Nanow\\NativeScript_Projects\\newWHS\\platforms\\android\\app\\src\\main\\res\\drawable-xxhdpi\\background.png"
+    },
+    {
+        "merged": "C:\\Users\\Nanow\\NativeScript_Projects\\newWHS\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-xxhdpi\\menu.png",
+        "source": "C:\\Users\\Nanow\\NativeScript_Projects\\newWHS\\platforms\\android\\app\\src\\main\\res\\drawable-xxhdpi\\menu.png"
+    },
+    {
+        "merged": "C:\\Users\\Nanow\\NativeScript_Projects\\newWHS\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-xxhdpi\\icon.png",
+        "source": "C:\\Users\\Nanow\\NativeScript_Projects\\newWHS\\platforms\\android\\app\\src\\main\\res\\drawable-xxhdpi\\icon.png"
+    }
+]
