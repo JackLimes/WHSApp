@@ -81,7 +81,7 @@ export function sqltest(args: EventData) {
     xmlhttp.send(request);
 }
 
-export function loadAnn(args: EventData) {
+export function loadAnn() {
     const stack = <StackLayout>topmost().getViewById("slayout");
     const url = "http://24.217.249.216/phpfiles/getann.php";
     const xmlhttp = new XMLHttpRequest();
@@ -113,4 +113,10 @@ export function loadAnn(args: EventData) {
         }
     };
     xmlhttp.send();
+}
+
+export function onLoaded(args) {
+    console.log("loading announcments");
+    const page = <Page>args.page;
+    console.log(page);
 }

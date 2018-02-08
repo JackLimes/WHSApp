@@ -48,7 +48,7 @@
                 Learn more about custom components and how they can be used in this documentation article:
                 http://docs.nativescript.org/ui/basics#custom-components
                 -->
-                <drawer:drawer-fragment selectedPage="Featured"/>
+                <drawer:drawer-fragment selectedPage="Post"/>
             </StackLayout>
         </nsDrawer:RadSideDrawer.drawerContent>
 
@@ -60,8 +60,10 @@
             <StackLayout id="mainStack">
                 <TextField id="title" hint="Title"/>
                 <TextField id="club" hint="Club"/>
-                <TextField id="desc" hint="Description"/>
-                <Button id="butt" text="Post Event" tap="postAnn"/>
+                <TextView id="desc" hint="Description"/>
+                <DatePicker id="date" (loaded)="onPickerLoaded($event)" (dateChange)="onDateChanged($event)" 
+(dayChange)="onDayChanged($event)" (monthChange)="onMonthChanged($event)" (yearChange)="onYearChanged($event)" verticalAlignment="center"></DatePicker>
+                <Button id="butt" text="Post Event"/>
             </StackLayout>
         </nsDrawer:RadSideDrawer.mainContent>
     </nsDrawer:RadSideDrawer>

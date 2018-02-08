@@ -11,6 +11,7 @@ export class DrawerViewModel extends Observable {
     /* ***********************************************************
     * Use the drawer view model constructor to initialize the properties data values.
     *************************************************************/
+
     constructor(selectedPage: string) {
         super();
 

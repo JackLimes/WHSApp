@@ -1,9 +1,12 @@
+import { Component } from "@angular/core";
 import { EventData } from "data/observable";
 import { RadSideDrawer } from "nativescript-pro-ui/sidedrawer";
 import { Button } from "tns-core-modules/ui/button";
 import { Label } from "tns-core-modules/ui/label";
 import { StackLayout } from "tns-core-modules/ui/layouts/stack-layout";
 import { TextField } from "tns-core-modules/ui/text-field";
+import { TextView } from "tns-core-modules/ui/text-view";
+import { DatePicker } from "ui/date-picker";
 import { topmost } from "ui/frame";
 import { NavigatedData, Page } from "ui/page";
 
@@ -42,7 +45,7 @@ export function postAnn() {
 
     const title = <TextField>topmost().getViewById("title");
     const club = <TextField>topmost().getViewById("club");
-    const desc = <TextField>topmost().getViewById("desc");
+    const desc = <TextView>topmost().getViewById("desc");
     const btn = <Button>topmost().getViewById("butt");
     const stack = <StackLayout>topmost().getViewById("mainStack");
 
@@ -66,4 +69,43 @@ export function postAnn() {
         }
     };
     xmlhttp.send(request);
+}
+
+@Component({
+    moduleId: module.id,
+    templateUrl: "./configure-date-picker.component.html"
+})
+
+export class ConfigureDatePickerComponent {
+
+    onPickerLoaded(args) {
+        const datePicker = <DatePicker>args.object;
+
+        datePicker.minDate = new Date();
+        datePicker.maxDate = new Date(2045, 4, 12);
+    }
+
+    onDateChanged(args) {
+        console.log("Date changed");
+        console.log("New value: " + args.value);
+        console.log("Old value: " + args.oldValue);
+    }
+
+    onDayChanged(args) {
+        console.log("Day changed");
+        console.log("New value: " + args.value);
+        console.log("Old value: " + args.oldValue);
+    }
+
+    onMonthChanged(args) {
+        console.log("Month changed");
+        console.log("New value: " + args.value);
+        console.log("Old value: " + args.oldValue);
+    }
+
+    onYearChanged(args) {
+        console.log("Year changed");
+        console.log("New value: " + args.value);
+        console.log("Old value: " + args.oldValue);
+    }
 }

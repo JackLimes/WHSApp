@@ -1,17 +1,10 @@
 {
-    "mysql": true,
+    "@angular/core": true,
     "nativescript-pro-ui": true,
     "nativescript-theme-core": true,
+    "rxjs": true,
     "tns-core-modules": true,
-    "bignumber.js": true,
-    "readable-stream": true,
-    "safe-buffer": true,
-    "sqlstring": true,
-    "tns-core-modules-widgets": true,
-    "core-util-is": true,
-    "inherits": true,
-    "isarray": true,
-    "process-nextick-args": true,
-    "string_decoder": true,
-    "util-deprecate": true
+    "tslib": true,
+    "symbol-observable": true,
+    "tns-core-modules-widgets": true
 }

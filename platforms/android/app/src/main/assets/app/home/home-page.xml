@@ -1,4 +1,5 @@
 <Page
+    loaded="onLoaded"
     class="page"
     navigatingTo="onNavigatingTo"  
     xmlns:nsDrawer="nativescript-pro-ui/sidedrawer"
