@@ -1,7 +1,15 @@
 [
     {
+        "merged": "C:\\Users\\Nanow\\OneDrive\\Documents\\GitHub\\WHSApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\xml\\chart_palettes_light_selected.xml",
+        "source": "C:\\Users\\Nanow\\.android\\build-cache\\af2228555b845554d0e09ac89bec3e6afc74a352\\output\\res\\xml\\chart_palettes_light_selected.xml"
+    },
+    {
         "merged": "C:\\Users\\Nanow\\NativeScript_Projects\\newWHS\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\xml\\chart_palettes_light_selected.xml",
         "source": "C:\\Users\\Nanow\\.android\\build-cache\\49163adb70925eaa3d93a41b8ac93b1ca51a8347\\output\\res\\xml\\chart_palettes_light_selected.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nanow\\OneDrive\\Documents\\GitHub\\WHSApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\xml\\chart_palettes_default_dark.xml",
+        "source": "C:\\Users\\Nanow\\.android\\build-cache\\af2228555b845554d0e09ac89bec3e6afc74a352\\output\\res\\xml\\chart_palettes_default_dark.xml"
     },
     {
         "merged": "C:\\Users\\Nanow\\NativeScript_Projects\\newWHS\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\xml\\chart_palettes_default_dark.xml",
@@ -10,6 +18,14 @@
     {
         "merged": "C:\\Users\\Nanow\\NativeScript_Projects\\newWHS\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\xml\\chart_palettes_default_light.xml",
         "source": "C:\\Users\\Nanow\\.android\\build-cache\\49163adb70925eaa3d93a41b8ac93b1ca51a8347\\output\\res\\xml\\chart_palettes_default_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nanow\\OneDrive\\Documents\\GitHub\\WHSApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\xml\\chart_palettes_default_light.xml",
+        "source": "C:\\Users\\Nanow\\.android\\build-cache\\af2228555b845554d0e09ac89bec3e6afc74a352\\output\\res\\xml\\chart_palettes_default_light.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nanow\\OneDrive\\Documents\\GitHub\\WHSApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\xml\\chart_palettes_dark_selected.xml",
+        "source": "C:\\Users\\Nanow\\.android\\build-cache\\af2228555b845554d0e09ac89bec3e6afc74a352\\output\\res\\xml\\chart_palettes_dark_selected.xml"
     },
     {
         "merged": "C:\\Users\\Nanow\\NativeScript_Projects\\newWHS\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\xml\\chart_palettes_dark_selected.xml",

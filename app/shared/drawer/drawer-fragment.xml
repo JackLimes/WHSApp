@@ -35,6 +35,13 @@ Feel free to customize layouts and components to change how your app drawer look
                 <Label row="0" col="1" text="Featured" class="p-r-10" />
             </GridLayout>
 
+            <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Post' ? ' selected': '') }}"
+                route="post/post-page" tap="onNavigationItemTap">
+                <Label row="0" col="0" text="&#xf005;" class="fa" />
+                <Label row="0" col="1" text="Post" class="p-r-10" />
+            </GridLayout>
+
+
             <StackLayout class="hr-light"></StackLayout>
 
             <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Settings' ? ' selected': '') }}"

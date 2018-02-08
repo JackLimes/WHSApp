@@ -12,15 +12,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Nanow\.android\build-cache\e37377ebe25bf5dc1b9d335fd54a452484e189f0\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="27.0.3"
-        sha1="556dc4e7734c7445d7310a625fad89c5be6728b2">
-        <dex dex="C:\Users\Nanow\NativeScript_Projects\newWHS\platforms\android\app\build\intermediates\pre-dexed\F0\debug\classes_98dd2df9befdc5d98f2bbd7d05b752f3f7027643.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\Nanow\.android\build-cache\d8413842b06a42118fda1ec726b82d0de4ddfd55\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -48,21 +39,39 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Nanow\.android\build-cache\6536875fd11011975ffd6592649c10b89b81c84f\output\jars\classes.jar"
+        jar="C:\Users\Nanow\.android\build-cache\38fe0c7dfdc7d411c2da864603c9c597e454c882\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="27.0.3"
-        sha1="4df8aad66215f497722e05820383f9ff04796fea">
-        <dex dex="C:\Users\Nanow\NativeScript_Projects\newWHS\platforms\android\app\build\intermediates\pre-dexed\F0\debug\classes_d77dd9ed31784002cc04bbeb3961b80a7fe0b3ed.jar" />
+        sha1="dd431d6aa9ce9dc0d429fcd239d412a82ea0e9a7">
+        <dex dex="C:\Users\Nanow\OneDrive\Documents\GitHub\WHSApp\platforms\android\app\build\intermediates\pre-dexed\F0\debug\classes_c7ebb8b46588c5c31a0696ab4a39444efa0101f2.jar" />
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Nanow\.android\build-cache\5d67f808b4f4ee9c2eea1df4c6d15cacfe158cd4\output\jars\classes.jar"
+        jar="C:\Users\Nanow\.android\build-cache\6462779affbd127781fd82076ef36333e947b01c\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="27.0.3"
-        sha1="ae411cd0dd58ad905486a0bc7931ec5adf3a2d13">
-        <dex dex="C:\Users\Nanow\NativeScript_Projects\newWHS\platforms\android\app\build\intermediates\pre-dexed\F0\debug\classes_d8e45d488843f591c29b23619765814c2eb1f938.jar" />
+        sha1="556dc4e7734c7445d7310a625fad89c5be6728b2">
+        <dex dex="C:\Users\Nanow\OneDrive\Documents\GitHub\WHSApp\platforms\android\app\build\intermediates\pre-dexed\F0\debug\classes_ad4a30f2ef923e834dcdeeb187c3854e1049ec8d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Nanow\.android\build-cache\ba9db3471a7d5f5b73bf741268126d201dfe88fe\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="9ffa5b2e37c626bd25cfbff4df099cdf068595f9">
+        <dex dex="C:\Users\Nanow\OneDrive\Documents\GitHub\WHSApp\platforms\android\app\build\intermediates\pre-dexed\F0\debug\classes_105fa1019f94e97ef82c50bdc40d584de6c9d35b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Nanow\.android\build-cache\b13f3c8533b2594907c8622102e69c65ca85a2d0\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="746274223beb11b1cda7854d7eec3038695c2c93">
+        <dex dex="C:\Users\Nanow\OneDrive\Documents\GitHub\WHSApp\platforms\android\app\build\intermediates\pre-dexed\F0\debug\classes_fcff0a08c4906140ff98c15697b721975ac34433.jar" />
     </item>
     <item
         is-multidex="false"
@@ -72,6 +81,24 @@
         revision="27.0.3"
         sha1="21ece50b870a8bea45608a6748ad60112d5d9ed1">
         <dex dex="C:\Users\Nanow\NativeScript_Projects\newWHS\platforms\android\app\build\intermediates\pre-dexed\F0\debug\classes_304892fe23da46590f773861d0749328ac3dcea1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Nanow\.android\build-cache\df21f765bb93ae1be73f0b463b9b750381f7daa5\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="0eed9e468431f447bf63f3a0cee23418e8994411">
+        <dex dex="C:\Users\Nanow\OneDrive\Documents\GitHub\WHSApp\platforms\android\app\build\intermediates\pre-dexed\F0\debug\classes_5ff5c79377c3a09348ac113d0093967749f31fcb.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Nanow\.android\build-cache\3761d6e32f114b61b3d0e57d4a9511c382d6ab38\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="ae411cd0dd58ad905486a0bc7931ec5adf3a2d13">
+        <dex dex="C:\Users\Nanow\OneDrive\Documents\GitHub\WHSApp\platforms\android\app\build\intermediates\pre-dexed\F0\debug\classes_6c995d993d36a9be869b6f27916540a36c71e9ea.jar" />
     </item>
     <item
         is-multidex="false"
@@ -90,6 +117,69 @@
         revision="27.0.3"
         sha1="ce22401852bd9e460265a9a1567f7cedb6fc91b9">
         <dex dex="C:\Users\Nanow\NativeScript_Projects\newWHS\platforms\android\app\build\intermediates\pre-dexed\F0\debug\classes_3bd85fd7fabb6d9bea995bb2db36ce31ca22cc47.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Nanow\.android\build-cache\79451ccb720d48eb432a22b0f8d2024b9503af68\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="16dfa5cc51cd9a9e2809e48ceb26724a29861fdd">
+        <dex dex="C:\Users\Nanow\OneDrive\Documents\GitHub\WHSApp\platforms\android\app\build\intermediates\pre-dexed\F0\debug\classes_709b144ea799898a9190755d267166d30ccd8a66.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Nanow\.android\build-cache\e37377ebe25bf5dc1b9d335fd54a452484e189f0\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="556dc4e7734c7445d7310a625fad89c5be6728b2">
+        <dex dex="C:\Users\Nanow\NativeScript_Projects\newWHS\platforms\android\app\build\intermediates\pre-dexed\F0\debug\classes_98dd2df9befdc5d98f2bbd7d05b752f3f7027643.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Nanow\.android\build-cache\4a8df62043a746ba61749e908a824bf836a3b0cb\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="ce22401852bd9e460265a9a1567f7cedb6fc91b9">
+        <dex dex="C:\Users\Nanow\OneDrive\Documents\GitHub\WHSApp\platforms\android\app\build\intermediates\pre-dexed\F0\debug\classes_056821cf3aa4ed92aa6dd56aca0704e3f6ad347f.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Nanow\.android\build-cache\6536875fd11011975ffd6592649c10b89b81c84f\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="4df8aad66215f497722e05820383f9ff04796fea">
+        <dex dex="C:\Users\Nanow\NativeScript_Projects\newWHS\platforms\android\app\build\intermediates\pre-dexed\F0\debug\classes_d77dd9ed31784002cc04bbeb3961b80a7fe0b3ed.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Nanow\.android\build-cache\5d67f808b4f4ee9c2eea1df4c6d15cacfe158cd4\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="ae411cd0dd58ad905486a0bc7931ec5adf3a2d13">
+        <dex dex="C:\Users\Nanow\NativeScript_Projects\newWHS\platforms\android\app\build\intermediates\pre-dexed\F0\debug\classes_d8e45d488843f591c29b23619765814c2eb1f938.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Nanow\.android\build-cache\32b9b0c7c207242087d67185f7caa1f49c471849\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="4df8aad66215f497722e05820383f9ff04796fea">
+        <dex dex="C:\Users\Nanow\OneDrive\Documents\GitHub\WHSApp\platforms\android\app\build\intermediates\pre-dexed\F0\debug\classes_55da926476307469f6c477b624306e287e4cc479.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Nanow\.android\build-cache\af2228555b845554d0e09ac89bec3e6afc74a352\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="27.0.3"
+        sha1="21ece50b870a8bea45608a6748ad60112d5d9ed1">
+        <dex dex="C:\Users\Nanow\OneDrive\Documents\GitHub\WHSApp\platforms\android\app\build\intermediates\pre-dexed\F0\debug\classes_a7ed69369656f65a7fe467370f0dfcc0bff175af.jar" />
     </item>
 
 </items>

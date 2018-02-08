@@ -1,5 +1,13 @@
 [
     {
+        "merged": "C:\\Users\\Nanow\\OneDrive\\Documents\\GitHub\\WHSApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-xhdpi\\logo.png",
+        "source": "C:\\Users\\Nanow\\OneDrive\\Documents\\GitHub\\WHSApp\\platforms\\android\\app\\src\\main\\res\\drawable-xhdpi\\logo.png"
+    },
+    {
+        "merged": "C:\\Users\\Nanow\\OneDrive\\Documents\\GitHub\\WHSApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-xhdpi\\background.png",
+        "source": "C:\\Users\\Nanow\\OneDrive\\Documents\\GitHub\\WHSApp\\platforms\\android\\app\\src\\main\\res\\drawable-xhdpi\\background.png"
+    },
+    {
         "merged": "C:\\Users\\Nanow\\NativeScript_Projects\\newWHS\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-xhdpi\\logo.png",
         "source": "C:\\Users\\Nanow\\NativeScript_Projects\\newWHS\\platforms\\android\\app\\src\\main\\res\\drawable-xhdpi\\logo.png"
     },
@@ -8,11 +16,19 @@
         "source": "C:\\Users\\Nanow\\NativeScript_Projects\\newWHS\\platforms\\android\\app\\src\\main\\res\\drawable-xhdpi\\background.png"
     },
     {
+        "merged": "C:\\Users\\Nanow\\OneDrive\\Documents\\GitHub\\WHSApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-xhdpi\\menu.png",
+        "source": "C:\\Users\\Nanow\\OneDrive\\Documents\\GitHub\\WHSApp\\platforms\\android\\app\\src\\main\\res\\drawable-xhdpi\\menu.png"
+    },
+    {
         "merged": "C:\\Users\\Nanow\\NativeScript_Projects\\newWHS\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-xhdpi\\menu.png",
         "source": "C:\\Users\\Nanow\\NativeScript_Projects\\newWHS\\platforms\\android\\app\\src\\main\\res\\drawable-xhdpi\\menu.png"
     },
     {
         "merged": "C:\\Users\\Nanow\\NativeScript_Projects\\newWHS\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-xhdpi\\icon.png",
         "source": "C:\\Users\\Nanow\\NativeScript_Projects\\newWHS\\platforms\\android\\app\\src\\main\\res\\drawable-xhdpi\\icon.png"
+    },
+    {
+        "merged": "C:\\Users\\Nanow\\OneDrive\\Documents\\GitHub\\WHSApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-xhdpi\\icon.png",
+        "source": "C:\\Users\\Nanow\\OneDrive\\Documents\\GitHub\\WHSApp\\platforms\\android\\app\\src\\main\\res\\drawable-xhdpi\\icon.png"
     }
 ]

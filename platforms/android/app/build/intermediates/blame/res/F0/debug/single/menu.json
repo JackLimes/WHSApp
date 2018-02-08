@@ -1,5 +1,9 @@
 [
     {
+        "merged": "C:\\Users\\Nanow\\OneDrive\\Documents\\GitHub\\WHSApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\menu\\send_feedback_activity_menu.xml",
+        "source": "C:\\Users\\Nanow\\.android\\build-cache\\df21f765bb93ae1be73f0b463b9b750381f7daa5\\output\\res\\menu\\send_feedback_activity_menu.xml"
+    },
+    {
         "merged": "C:\\Users\\Nanow\\NativeScript_Projects\\newWHS\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\menu\\edit_details.xml",
         "source": "C:\\Users\\Nanow\\.android\\build-cache\\e9273afb0f23a9e9e0f99c54542df0f2418e7e41\\output\\res\\menu\\edit_details.xml"
     },
@@ -10,5 +14,13 @@
     {
         "merged": "C:\\Users\\Nanow\\NativeScript_Projects\\newWHS\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\menu\\view_feedback_items_activity_menu.xml",
         "source": "C:\\Users\\Nanow\\.android\\build-cache\\e9273afb0f23a9e9e0f99c54542df0f2418e7e41\\output\\res\\menu\\view_feedback_items_activity_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nanow\\OneDrive\\Documents\\GitHub\\WHSApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\menu\\view_feedback_items_activity_menu.xml",
+        "source": "C:\\Users\\Nanow\\.android\\build-cache\\df21f765bb93ae1be73f0b463b9b750381f7daa5\\output\\res\\menu\\view_feedback_items_activity_menu.xml"
+    },
+    {
+        "merged": "C:\\Users\\Nanow\\OneDrive\\Documents\\GitHub\\WHSApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\menu\\edit_details.xml",
+        "source": "C:\\Users\\Nanow\\.android\\build-cache\\df21f765bb93ae1be73f0b463b9b750381f7daa5\\output\\res\\menu\\edit_details.xml"
     }
 ]

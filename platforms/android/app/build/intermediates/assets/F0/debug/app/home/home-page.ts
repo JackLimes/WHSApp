@@ -4,6 +4,7 @@ import { RadSideDrawer } from "nativescript-pro-ui/sidedrawer";
 import { Button } from "tns-core-modules/ui/button";
 import { Label } from "tns-core-modules/ui/label";
 import { StackLayout } from "tns-core-modules/ui/layouts/stack-layout";
+import * as dialogs from "ui/dialogs";
 import { topmost } from "ui/frame";
 import { NavigatedData, Page } from "ui/page";
 import { HomeViewModel } from "./home-view-model";
@@ -80,7 +81,7 @@ export function sqltest(args: EventData) {
     xmlhttp.send(request);
 }
 
-export function pageLoaded(args: EventData) {
+export function loadAnn(args: EventData) {
     const stack = <StackLayout>topmost().getViewById("slayout");
     const url = "http://24.217.249.216/phpfiles/getann.php";
     const xmlhttp = new XMLHttpRequest();
@@ -101,7 +102,11 @@ export function pageLoaded(args: EventData) {
                 btn = new Button();
                 btn.text = resobj.title[i];
                 btn.on(Button.tapEvent, () => {
-                    alert(resobj.desc[i]);
+                    dialogs.alert({
+                        title: resobj.club[i],
+                        message: resobj.desc[i],
+                        okButtonText: "Close"
+                    });
                 });
                 stack.addChild(btn);
             }
