@@ -2,11 +2,11 @@ import { Component } from "@angular/core";
 import { EventData } from "data/observable";
 import { RadSideDrawer } from "nativescript-pro-ui/sidedrawer";
 import { Button } from "tns-core-modules/ui/button";
+import { DatePicker } from "tns-core-modules/ui/date-picker";
 import { Label } from "tns-core-modules/ui/label";
 import { StackLayout } from "tns-core-modules/ui/layouts/stack-layout";
 import { TextField } from "tns-core-modules/ui/text-field";
 import { TextView } from "tns-core-modules/ui/text-view";
-import { DatePicker } from "ui/date-picker";
 import { topmost } from "ui/frame";
 import { NavigatedData, Page } from "ui/page";
 
@@ -48,9 +48,11 @@ export function postAnn() {
     const desc = <TextView>topmost().getViewById("desc");
     const btn = <Button>topmost().getViewById("butt");
     const stack = <StackLayout>topmost().getViewById("mainStack");
+    const datePicker = <DatePicker>topmost().getViewById("date");
+    const formattedDate = datePicker.year + "-" + datePicker.month + "-" + datePicker.day;
 
     // Create object to pass to php
-    const request = JSON.stringify({title: title.text, club: club.text, description: desc.text});
+    const request = JSON.stringify({title: title.text, club: club.text, description: desc.text, birth: formattedDate});
 
     xmlhttp.open("POST", url);
     xmlhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
@@ -61,12 +63,24 @@ export function postAnn() {
 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
-            // var jsondata = JSON.parse(this.responseText);
+            const jsondata = JSON.parse(this.responseText);
             title.text = "";
             club.text = "";
             desc.text = "";
-            alert("Event (hopefully) posted");
+            alert(jsondata);
         }
     };
     xmlhttp.send(request);
+}
+
+export function dateTest() {
+    const datePicker = <DatePicker>topmost().getViewById("date");
+    alert(datePicker.year + "-" + datePicker.month + "-" + datePicker.day);
+}
+
+export function onNavigatedTo() {
+    const datePicker = <DatePicker>topmost().getViewById("date");
+    const today = new Date();
+    datePicker.date = today;
+    datePicker.minDate = today;
 }

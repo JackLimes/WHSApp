@@ -1,4 +1,3 @@
-
 import { EventData } from "data/observable";
 import { RadSideDrawer } from "nativescript-pro-ui/sidedrawer";
 import { Button } from "tns-core-modules/ui/button";
@@ -24,6 +23,14 @@ export function onNavigatingTo(args: NavigatedData) {
 
     const page = <Page>args.object;
     page.bindingContext = new HomeViewModel();
+
+    console.log("Navigating");
+    loadAnn();
+}
+
+export function onNavigatedTo(args: NavigatedData) {
+    console.log("Navigated");
+    loadAnn();
 }
 
 /* ***********************************************************
@@ -98,7 +105,16 @@ export function loadAnn() {
             const resobj = JSON.parse(this.responseText);
             const count = resobj.title.length;
             let btn;
+            let lbl;
+            let onDate;
             for (let i = 0; i < count; i++) {
+                if (resobj.birth[i] !== onDate) {
+                    onDate = resobj.birth[i];
+                    lbl = new Label();
+                    lbl.class = "date";
+                    lbl.text = resobj.birth[i];
+                    stack.addChild(lbl);
+                }
                 btn = new Button();
                 btn.text = resobj.title[i];
                 btn.on(Button.tapEvent, () => {
@@ -117,6 +133,4 @@ export function loadAnn() {
 
 export function onLoaded(args) {
     console.log("loading announcments");
-    const page = <Page>args.page;
-    console.log(page);
 }

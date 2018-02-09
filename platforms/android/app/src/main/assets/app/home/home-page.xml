@@ -2,6 +2,7 @@
     loaded="onLoaded"
     class="page"
     navigatingTo="onNavigatingTo"  
+    navigatedTo="onNavigatedTo"
     xmlns:nsDrawer="nativescript-pro-ui/sidedrawer"
     xmlns:drawer="shared/drawer"
     xmlns="http://schemas.nativescript.org/tns.xsd">

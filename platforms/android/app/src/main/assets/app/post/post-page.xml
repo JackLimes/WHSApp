@@ -1,6 +1,7 @@
 <Page
     class="page"
     navigatingTo="onNavigatingTo"  
+    navigatedTo="onNavigatedTo"
     xmlns:nsDrawer="nativescript-pro-ui/sidedrawer"
     xmlns:drawer="shared/drawer"
     xmlns="http://schemas.nativescript.org/tns.xsd">
@@ -61,9 +62,10 @@
                 <TextField id="title" hint="Title"/>
                 <TextField id="club" hint="Club"/>
                 <TextView id="desc" hint="Description"/>
-                <DatePicker id="date" (loaded)="onPickerLoaded($event)" (dateChange)="onDateChanged($event)" 
-(dayChange)="onDayChanged($event)" (monthChange)="onMonthChanged($event)" (yearChange)="onYearChanged($event)" verticalAlignment="center"></DatePicker>
-                <Button id="butt" text="Post Event"/>
+                <!--this date picker can be filled with any data. It will change to today's date upon the page loading -->
+                <DatePicker id="date" day="15" month="5" year="2015" verticalAlignment="center"></DatePicker>
+                <Button id="butt" text="Post Event" tap="postAnn" />
+                <Button id="datea" text="get date data" tap="dateTest" />
             </StackLayout>
         </nsDrawer:RadSideDrawer.mainContent>
     </nsDrawer:RadSideDrawer>
