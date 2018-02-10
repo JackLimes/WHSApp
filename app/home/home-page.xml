@@ -62,8 +62,11 @@
         <ScrollView>
             <StackLayout id="slayout" class="page-content">
                 <Label class="page-placeholder" text="Welcome to FORT ZUMWALT BABY!"></Label>
+                <!--
                 <Button class="announcement" tap="datass" text="Testing text"/>
                 <Button tap="loadAnn" text = "Test &#x000a;MYSQL!"/>
+                -->
+                <ActivityIndicator id="activityIndicator" busy="true" visibility="visible"/>
             </StackLayout>
         </ScrollView>
         </nsDrawer:RadSideDrawer.mainContent>

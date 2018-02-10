@@ -1,5 +1,6 @@
 import { EventData } from "data/observable";
 import { RadSideDrawer } from "nativescript-pro-ui/sidedrawer";
+import { ActivityIndicator } from "tns-core-modules/ui/activity-indicator";
 import { Button } from "tns-core-modules/ui/button";
 import { Label } from "tns-core-modules/ui/label";
 import { StackLayout } from "tns-core-modules/ui/layouts/stack-layout";
@@ -102,8 +103,10 @@ export function loadAnn() {
 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
+            const activityIndicator = <ActivityIndicator>topmost().getViewById("activityIndicator");
+            activityIndicator.visibility = "collapse";
             const resobj = JSON.parse(this.responseText);
-            const count = resobj.title.length;
+            const count = resobj.title.length; // # of items in the array, not the # of characters in the title
             let btn;
             let lbl;
             let onDate;
@@ -116,7 +119,8 @@ export function loadAnn() {
                     stack.addChild(lbl);
                 }
                 btn = new Button();
-                btn.text = resobj.title[i];
+                btn.text = "[" + resobj.club[i] + "] " + resobj.title[i];
+                btn.backgroundColor = resobj.color[i];
                 btn.on(Button.tapEvent, () => {
                     dialogs.alert({
                         title: resobj.club[i],
