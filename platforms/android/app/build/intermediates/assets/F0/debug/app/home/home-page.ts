@@ -1,6 +1,6 @@
-
 import { EventData } from "data/observable";
 import { RadSideDrawer } from "nativescript-pro-ui/sidedrawer";
+import { ActivityIndicator } from "tns-core-modules/ui/activity-indicator";
 import { Button } from "tns-core-modules/ui/button";
 import { Label } from "tns-core-modules/ui/label";
 import { StackLayout } from "tns-core-modules/ui/layouts/stack-layout";
@@ -24,6 +24,14 @@ export function onNavigatingTo(args: NavigatedData) {
 
     const page = <Page>args.object;
     page.bindingContext = new HomeViewModel();
+
+    console.log("Navigating");
+    loadAnn();
+}
+
+export function onNavigatedTo(args: NavigatedData) {
+    console.log("Navigated");
+    loadAnn();
 }
 
 /* ***********************************************************
@@ -81,7 +89,7 @@ export function sqltest(args: EventData) {
     xmlhttp.send(request);
 }
 
-export function loadAnn(args: EventData) {
+export function loadAnn() {
     const stack = <StackLayout>topmost().getViewById("slayout");
     const url = "http://24.217.249.216/phpfiles/getann.php";
     const xmlhttp = new XMLHttpRequest();
@@ -95,12 +103,24 @@ export function loadAnn(args: EventData) {
 
     xmlhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
+            const activityIndicator = <ActivityIndicator>topmost().getViewById("activityIndicator");
+            activityIndicator.visibility = "collapse";
             const resobj = JSON.parse(this.responseText);
-            const count = resobj.title.length;
+            const count = resobj.title.length; // # of items in the array, not the # of characters in the title
             let btn;
+            let lbl;
+            let onDate;
             for (let i = 0; i < count; i++) {
+                if (resobj.birth[i] !== onDate) {
+                    onDate = resobj.birth[i];
+                    lbl = new Label();
+                    lbl.class = "date";
+                    lbl.text = resobj.birth[i];
+                    stack.addChild(lbl);
+                }
                 btn = new Button();
-                btn.text = resobj.title[i];
+                btn.text = "[" + resobj.club[i] + "] " + resobj.title[i];
+                btn.backgroundColor = resobj.color[i];
                 btn.on(Button.tapEvent, () => {
                     dialogs.alert({
                         title: resobj.club[i],
@@ -113,4 +133,8 @@ export function loadAnn(args: EventData) {
         }
     };
     xmlhttp.send();
+}
+
+export function onLoaded(args) {
+    console.log("loading announcments");
 }

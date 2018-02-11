@@ -4,9 +4,9 @@ Feel free to customize layouts and components to change how your app drawer look
 -->
 <GridLayout rows="auto, *" class="sidedrawer sidedrawer-left" loaded="onLoaded">
     <StackLayout class="sidedrawer-header">
-        <Label class="sidedrawer-header-image fa" text="&#xf2bd;" />
-        <Label class="sidedrawer-header-brand" text="User Name" />
-        <Label class="footnote" text="username@mail.com" />
+        <Image class="sidedrawer-header-image fa" src="{{ imgurl }}" />
+        <Label class="sidedrawer-header-brand" text="{{ username }}" />
+        <Label class="footnote" text="{{ email }}" />
     </StackLayout>
 
     <ScrollView row="1">
@@ -48,6 +48,11 @@ Feel free to customize layouts and components to change how your app drawer look
                 route="settings/settings-page" tap="onNavigationItemTap">
                 <Label row="0" col="0" text="&#xf013;" class="fa" />
                 <Label row="0" col="1" text="Settings" class="p-r-10" />
+            </GridLayout>
+            <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Settings' ? ' selected': '') }}"
+                route="login/login-page" tap="onLogoutTap">
+                <Label row="0" col="0" text="&#xf052;" class="fa" />
+                <Label row="0" col="1" text="Logout" class="p-r-10" />
             </GridLayout>
         </StackLayout>
     </ScrollView>

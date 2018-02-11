@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 var observable_1 = require("data/observable");
+var firebase = require("nativescript-plugin-firebase");
 var observable_property_decorator_1 = require("../../shared/observable-property-decorator");
 /* ***********************************************************
 * Keep data that is displayed in your app drawer in the drawer custom component view model.
@@ -12,6 +13,13 @@ var DrawerViewModel = /** @class */ (function (_super) {
     *************************************************************/
     function DrawerViewModel(selectedPage) {
         var _this = _super.call(this) || this;
+        firebase.getCurrentUser().then(function (user) {
+            _this.email = user.email;
+            _this.username = user.name;
+            _this.imgurl = user.profileImageURL;
+        }, function (error) {
+            alert("FB ERROR: " + error);
+        });
         _this.selectedPage = selectedPage;
         return _this;
     }
@@ -19,7 +27,19 @@ var DrawerViewModel = /** @class */ (function (_super) {
         observable_property_decorator_1.ObservableProperty(),
         __metadata("design:type", String)
     ], DrawerViewModel.prototype, "selectedPage", void 0);
+    __decorate([
+        observable_property_decorator_1.ObservableProperty(),
+        __metadata("design:type", String)
+    ], DrawerViewModel.prototype, "email", void 0);
+    __decorate([
+        observable_property_decorator_1.ObservableProperty(),
+        __metadata("design:type", String)
+    ], DrawerViewModel.prototype, "username", void 0);
+    __decorate([
+        observable_property_decorator_1.ObservableProperty(),
+        __metadata("design:type", String)
+    ], DrawerViewModel.prototype, "imgurl", void 0);
     return DrawerViewModel;
 }(observable_1.Observable));
 exports.DrawerViewModel = DrawerViewModel;
-//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZHJhd2VyLXZpZXctbW9kZWwuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJkcmF3ZXItdmlldy1tb2RlbC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDhDQUE2QztBQUU3Qyw0RkFBZ0Y7QUFFaEY7OzhEQUU4RDtBQUM5RDtJQUFxQyxtQ0FBVTtJQUczQzs7a0VBRThEO0lBRTlELHlCQUFZLFlBQW9CO1FBQWhDLFlBQ0ksaUJBQU8sU0FHVjtRQURHLEtBQUksQ0FBQyxZQUFZLEdBQUcsWUFBWSxDQUFDOztJQUNyQyxDQUFDO0lBVnFCO1FBQXJCLGtEQUFrQixFQUFFOzt5REFBc0I7SUFXL0Msc0JBQUM7Q0FBQSxBQVpELENBQXFDLHVCQUFVLEdBWTlDO0FBWlksMENBQWUiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBPYnNlcnZhYmxlIH0gZnJvbSBcImRhdGEvb2JzZXJ2YWJsZVwiO1xyXG5cclxuaW1wb3J0IHsgT2JzZXJ2YWJsZVByb3BlcnR5IH0gZnJvbSBcIi4uLy4uL3NoYXJlZC9vYnNlcnZhYmxlLXByb3BlcnR5LWRlY29yYXRvclwiO1xyXG5cclxuLyogKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKipcclxuKiBLZWVwIGRhdGEgdGhhdCBpcyBkaXNwbGF5ZWQgaW4geW91ciBhcHAgZHJhd2VyIGluIHRoZSBkcmF3ZXIgY3VzdG9tIGNvbXBvbmVudCB2aWV3IG1vZGVsLlxyXG4qKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqL1xyXG5leHBvcnQgY2xhc3MgRHJhd2VyVmlld01vZGVsIGV4dGVuZHMgT2JzZXJ2YWJsZSB7XHJcbiAgICBAT2JzZXJ2YWJsZVByb3BlcnR5KCkgc2VsZWN0ZWRQYWdlOiBzdHJpbmc7XHJcblxyXG4gICAgLyogKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKipcclxuICAgICogVXNlIHRoZSBkcmF3ZXIgdmlldyBtb2RlbCBjb25zdHJ1Y3RvciB0byBpbml0aWFsaXplIHRoZSBwcm9wZXJ0aWVzIGRhdGEgdmFsdWVzLlxyXG4gICAgKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKi9cclxuXHJcbiAgICBjb25zdHJ1Y3RvcihzZWxlY3RlZFBhZ2U6IHN0cmluZykge1xyXG4gICAgICAgIHN1cGVyKCk7XHJcblxyXG4gICAgICAgIHRoaXMuc2VsZWN0ZWRQYWdlID0gc2VsZWN0ZWRQYWdlO1xyXG4gICAgfVxyXG59XHJcbiJdfQ==
+//# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJmaWxlIjoiZHJhd2VyLXZpZXctbW9kZWwuanMiLCJzb3VyY2VSb290IjoiIiwic291cmNlcyI6WyJkcmF3ZXItdmlldy1tb2RlbC50cyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiOztBQUFBLDhDQUE2QztBQUM3Qyx1REFBMEQ7QUFDMUQsNEZBQWdGO0FBRWhGOzs4REFFOEQ7QUFDOUQ7SUFBcUMsbUNBQVU7SUFNM0M7O2tFQUU4RDtJQUU5RCx5QkFBWSxZQUFvQjtRQUFoQyxZQUNJLGlCQUFPLFNBU1Y7UUFSRyxRQUFRLENBQUMsY0FBYyxFQUFFLENBQUMsSUFBSSxDQUFDLFVBQUMsSUFBSTtZQUNoQyxLQUFJLENBQUMsS0FBSyxHQUFHLElBQUksQ0FBQyxLQUFLLENBQUM7WUFDeEIsS0FBSSxDQUFDLFFBQVEsR0FBRyxJQUFJLENBQUMsSUFBSSxDQUFDO1lBQzFCLEtBQUksQ0FBQyxNQUFNLEdBQUcsSUFBSSxDQUFDLGVBQWUsQ0FBQztRQUN2QyxDQUFDLEVBQUUsVUFBQyxLQUFLO1lBQ0wsS0FBSyxDQUFDLFlBQVksR0FBRyxLQUFLLENBQUMsQ0FBQztRQUNoQyxDQUFDLENBQUMsQ0FBQztRQUNILEtBQUksQ0FBQyxZQUFZLEdBQUcsWUFBWSxDQUFDOztJQUNyQyxDQUFDO0lBbkJxQjtRQUFyQixrREFBa0IsRUFBRTs7eURBQXNCO0lBQ3JCO1FBQXJCLGtEQUFrQixFQUFFOztrREFBZTtJQUNkO1FBQXJCLGtEQUFrQixFQUFFOztxREFBa0I7SUFDakI7UUFBckIsa0RBQWtCLEVBQUU7O21EQUFnQjtJQWlCekMsc0JBQUM7Q0FBQSxBQXJCRCxDQUFxQyx1QkFBVSxHQXFCOUM7QUFyQlksMENBQWUiLCJzb3VyY2VzQ29udGVudCI6WyJpbXBvcnQgeyBPYnNlcnZhYmxlIH0gZnJvbSBcImRhdGEvb2JzZXJ2YWJsZVwiO1xuaW1wb3J0IGZpcmViYXNlID0gcmVxdWlyZShcIm5hdGl2ZXNjcmlwdC1wbHVnaW4tZmlyZWJhc2VcIik7XG5pbXBvcnQgeyBPYnNlcnZhYmxlUHJvcGVydHkgfSBmcm9tIFwiLi4vLi4vc2hhcmVkL29ic2VydmFibGUtcHJvcGVydHktZGVjb3JhdG9yXCI7XG5cbi8qICoqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqXG4qIEtlZXAgZGF0YSB0aGF0IGlzIGRpc3BsYXllZCBpbiB5b3VyIGFwcCBkcmF3ZXIgaW4gdGhlIGRyYXdlciBjdXN0b20gY29tcG9uZW50IHZpZXcgbW9kZWwuXG4qKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqL1xuZXhwb3J0IGNsYXNzIERyYXdlclZpZXdNb2RlbCBleHRlbmRzIE9ic2VydmFibGUge1xuICAgIEBPYnNlcnZhYmxlUHJvcGVydHkoKSBzZWxlY3RlZFBhZ2U6IHN0cmluZztcbiAgICBAT2JzZXJ2YWJsZVByb3BlcnR5KCkgZW1haWw6IHN0cmluZztcbiAgICBAT2JzZXJ2YWJsZVByb3BlcnR5KCkgdXNlcm5hbWU6IHN0cmluZztcbiAgICBAT2JzZXJ2YWJsZVByb3BlcnR5KCkgaW1ndXJsOiBzdHJpbmc7XG5cbiAgICAvKiAqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKlxuICAgICogVXNlIHRoZSBkcmF3ZXIgdmlldyBtb2RlbCBjb25zdHJ1Y3RvciB0byBpbml0aWFsaXplIHRoZSBwcm9wZXJ0aWVzIGRhdGEgdmFsdWVzLlxuICAgICoqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKiovXG5cbiAgICBjb25zdHJ1Y3RvcihzZWxlY3RlZFBhZ2U6IHN0cmluZykge1xuICAgICAgICBzdXBlcigpO1xuICAgICAgICBmaXJlYmFzZS5nZXRDdXJyZW50VXNlcigpLnRoZW4oKHVzZXIpID0+IHtcbiAgICAgICAgICAgIHRoaXMuZW1haWwgPSB1c2VyLmVtYWlsO1xuICAgICAgICAgICAgdGhpcy51c2VybmFtZSA9IHVzZXIubmFtZTtcbiAgICAgICAgICAgIHRoaXMuaW1ndXJsID0gdXNlci5wcm9maWxlSW1hZ2VVUkw7XG4gICAgICAgIH0sIChlcnJvcikgPT4ge1xuICAgICAgICAgICAgYWxlcnQoXCJGQiBFUlJPUjogXCIgKyBlcnJvcik7XG4gICAgICAgIH0pO1xuICAgICAgICB0aGlzLnNlbGVjdGVkUGFnZSA9IHNlbGVjdGVkUGFnZTtcbiAgICB9XG59XG4iXX0=

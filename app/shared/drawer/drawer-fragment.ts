@@ -1,5 +1,8 @@
 import { EventData } from "data/observable";
+import firebase = require("nativescript-plugin-firebase");
+
 import { topmost } from "ui/frame";
+
 import { GridLayout } from "ui/layouts/grid-layout";
 
 import { DrawerViewModel } from "./drawer-view-model";
@@ -23,6 +26,18 @@ export function onNavigationItemTap(args: EventData): void {
     const component = <GridLayout>args.object;
     const componentRoute = component.get("route");
 
+    topmost().navigate({
+        moduleName: componentRoute,
+        transition: {
+            name: "fade"
+        }
+    });
+}
+
+export function onLogoutTap(args: EventData): void {
+    const component = <GridLayout>args.object;
+    const componentRoute = component.get("route");
+    firebase.logout();
     topmost().navigate({
         moduleName: componentRoute,
         transition: {

@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "718970362403",
+    "firebase_url": "https://fz-west-board.firebaseio.com",
+    "project_id": "fz-west-board",
+    "storage_bucket": "fz-west-board.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:718970362403:android:8e1618e27d3eeb12",
+        "android_client_info": {
+          "package_name": "org.nativescript.newWHS"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "718970362403-7kc7ugdm8q4mgdg2mgcd9knfdf551top.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "718970362403-nk25ar5elt36edn3e1uqgtih8l0drcu0.apps.googleusercontent.com",
+          "client_type": 3
+        },
+        {
+          "client_id": "718970362403-jbp88rlv9go1rrnja4182lmtkhtd08hn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "org.nativescript.newWHS",
+            "certificate_hash": "2a99d29eaa8533aa9dff85ddfb8e7165c70cd4e2"
+          }
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCdd_wBlyQ3Q2Ut45uP2OTIO0Jal47JeOo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

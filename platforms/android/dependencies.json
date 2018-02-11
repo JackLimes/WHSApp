@@ -1,5 +1,9 @@
 [
     {
+        "name": "nativescript-plugin-firebase",
+        "directory": "..\\..\\node_modules\\nativescript-plugin-firebase"
+    },
+    {
         "name": "nativescript-pro-ui",
         "directory": "..\\..\\node_modules\\nativescript-pro-ui"
     },

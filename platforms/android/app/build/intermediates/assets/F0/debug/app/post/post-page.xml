@@ -1,6 +1,7 @@
 <Page
     class="page"
     navigatingTo="onNavigatingTo"  
+    navigatedTo="onNavigatedTo"
     xmlns:nsDrawer="nativescript-pro-ui/sidedrawer"
     xmlns:drawer="shared/drawer"
     xmlns="http://schemas.nativescript.org/tns.xsd">
@@ -18,7 +19,7 @@
             tap="onDrawerButtonTap"
             ios.position="left">
         </ActionItem>
-        <Label class="action-bar-title" text="Featured"></Label>
+        <Label class="action-bar-title" text="Post"></Label>
     </ActionBar>
 
     <!--
@@ -59,11 +60,12 @@
         <nsDrawer:RadSideDrawer.mainContent>
             <StackLayout id="mainStack">
                 <TextField id="title" hint="Title"/>
-                <TextField id="club" hint="Club"/>
                 <TextView id="desc" hint="Description"/>
-                <DatePicker id="date" (loaded)="onPickerLoaded($event)" (dateChange)="onDateChanged($event)" 
-(dayChange)="onDayChanged($event)" (monthChange)="onMonthChanged($event)" (yearChange)="onYearChanged($event)" verticalAlignment="center"></DatePicker>
-                <Button id="butt" text="Post Event"/>
+                <!--this date picker can be filled with any data. It will change to today's date upon the page loading (because I don't know how to code any better) -->
+                <ListPicker id="listPicker" selectedIndex="0" />
+                <StackLayout class="hr-light"></StackLayout> <!-- a small line to separate ui -->
+                <DatePicker id="date" items="{{ pokemon }}" day="15" month="5" year="2015" verticalAlignment="center"></DatePicker>
+                <Button id="butt" text="Post Event" tap="postAnn" />
             </StackLayout>
         </nsDrawer:RadSideDrawer.mainContent>
     </nsDrawer:RadSideDrawer>

@@ -8,12 +8,13 @@
 android {  
   defaultConfig {  
     generatedDensities = []
-    applicationId = "org.nativescript.newWHS"  
+    applicationId = "org.nativescript.newWHS"
+    multiDexEnabled true
   }  
-  aaptOptions {  
-    additionalParameters "--no-version-vectors"  
-  }  
-} 
+  aaptOptions {
+    additionalParameters "--no-version-vectors" 
+  }
+}
 
 def settingsGradlePath = "$rootDir/../../app/App_Resources/Android/settings.gradle";
 def settingsGradleFile = new File(settingsGradlePath);

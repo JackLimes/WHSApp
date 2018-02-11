@@ -39,16 +39,16 @@ MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\Nanow\
 MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\Nanow\.android\build-cache\afb4bbf6748fb0bf71a5c25f7ae0dbfe64bbf3ce\output\AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\Nanow\.android\build-cache\4c36339a45a5d24350587ca2d14048085428605a\output\AndroidManifest.xml:21:5-23:61
 MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\Nanow\.android\build-cache\cb04cf9a3271c9429978975dec4b8f93d7a448ba\output\AndroidManifest.xml:21:5-23:58
-MERGED from [:nativescript-optimized:] C:\Users\Nanow\.android\build-cache\b13f3c8533b2594907c8622102e69c65ca85a2d0\output\AndroidManifest.xml:7:5-9:41
-MERGED from [:Chart-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\af2228555b845554d0e09ac89bec3e6afc74a352\output\AndroidManifest.xml:7:5-9:41
-MERGED from [:Common-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\ba9db3471a7d5f5b73bf741268126d201dfe88fe\output\AndroidManifest.xml:7:5-9:41
-MERGED from [:Data-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\32b9b0c7c207242087d67185f7caa1f49c471849\output\AndroidManifest.xml:7:5-9:41
-MERGED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\df21f765bb93ae1be73f0b463b9b750381f7daa5\output\AndroidManifest.xml:7:5-9:41
-MERGED from [:Gauges-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\6462779affbd127781fd82076ef36333e947b01c\output\AndroidManifest.xml:7:5-9:41
-MERGED from [:Input-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\4a8df62043a746ba61749e908a824bf836a3b0cb\output\AndroidManifest.xml:7:5-9:41
-MERGED from [:List-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\3761d6e32f114b61b3d0e57d4a9511c382d6ab38\output\AndroidManifest.xml:7:5-9:41
-MERGED from [:Primitives-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\79451ccb720d48eb432a22b0f8d2024b9503af68\output\AndroidManifest.xml:7:5-9:41
-MERGED from [:widgets-release:] C:\Users\Nanow\.android\build-cache\38fe0c7dfdc7d411c2da864603c9c597e454c882\output\AndroidManifest.xml:7:5-9:41
+MERGED from [:nativescript-optimized:] C:\Users\Nanow\.android\build-cache\e71f61b1e15f96242d976bd3bfdb56ce66bf01aa\output\AndroidManifest.xml:7:5-9:41
+MERGED from [:Chart-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\f79a1077c0c26b96ecbccf566202f205e6b3ea1b\output\AndroidManifest.xml:7:5-9:41
+MERGED from [:Common-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\28cd297adc54b4ec66da857fe1ed27400edfef46\output\AndroidManifest.xml:7:5-9:41
+MERGED from [:Data-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\c1926cfbf12bd52a36ed057c6f5e32b18020696d\output\AndroidManifest.xml:7:5-9:41
+MERGED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\75290f55466549343bccb9f47ef60aeac80bb8df\output\AndroidManifest.xml:7:5-9:41
+MERGED from [:Gauges-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\1a278613f12d6bfacdbd014eb7b6370eb7ac1931\output\AndroidManifest.xml:7:5-9:41
+MERGED from [:Input-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\49d84ae9f3af5ba5bfc0710162880313b13127be\output\AndroidManifest.xml:7:5-9:41
+MERGED from [:List-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\1893ef632e656e94002b18605fae594f7519dd54\output\AndroidManifest.xml:7:5-9:41
+MERGED from [:Primitives-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\b6200abe4708ba359b85d84304e3ffdb9cd455bb\output\AndroidManifest.xml:7:5-9:41
+MERGED from [:widgets-release:] C:\Users\Nanow\.android\build-cache\a930dd544ccda49dcbbf2830396b51bd43fc11a4\output\AndroidManifest.xml:7:5-9:41
 	tools:overrideLibrary
 		ADDED from [com.android.support:design:26.0.0-alpha1] C:\Users\Nanow\.android\build-cache\f56ccbd2f03d42b4be43a73823c3baccb804f71f\output\AndroidManifest.xml:23:9-59
 	android:targetSdkVersion
@@ -84,15 +84,15 @@ MERGED from [com.android.support:support-fragment:26.0.0-alpha1] C:\Users\Nanow\
 MERGED from [com.android.support:support-core-ui:26.0.0-alpha1] C:\Users\Nanow\.android\build-cache\afb4bbf6748fb0bf71a5c25f7ae0dbfe64bbf3ce\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-core-utils:26.0.0-alpha1] C:\Users\Nanow\.android\build-cache\4c36339a45a5d24350587ca2d14048085428605a\output\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\Nanow\.android\build-cache\cb04cf9a3271c9429978975dec4b8f93d7a448ba\output\AndroidManifest.xml:29:5-20
-MERGED from [:Chart-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\af2228555b845554d0e09ac89bec3e6afc74a352\output\AndroidManifest.xml:11:5-12:19
-MERGED from [:Common-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\ba9db3471a7d5f5b73bf741268126d201dfe88fe\output\AndroidManifest.xml:11:5-12:19
-MERGED from [:Data-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\32b9b0c7c207242087d67185f7caa1f49c471849\output\AndroidManifest.xml:11:5-12:19
-MERGED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\df21f765bb93ae1be73f0b463b9b750381f7daa5\output\AndroidManifest.xml:11:5-32:19
-MERGED from [:Gauges-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\6462779affbd127781fd82076ef36333e947b01c\output\AndroidManifest.xml:11:5-12:19
-MERGED from [:Input-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\4a8df62043a746ba61749e908a824bf836a3b0cb\output\AndroidManifest.xml:11:5-12:19
-MERGED from [:List-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\3761d6e32f114b61b3d0e57d4a9511c382d6ab38\output\AndroidManifest.xml:11:5-12:19
-MERGED from [:Primitives-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\79451ccb720d48eb432a22b0f8d2024b9503af68\output\AndroidManifest.xml:11:5-12:19
-MERGED from [:widgets-release:] C:\Users\Nanow\.android\build-cache\38fe0c7dfdc7d411c2da864603c9c597e454c882\output\AndroidManifest.xml:11:5-12:19
+MERGED from [:Chart-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\f79a1077c0c26b96ecbccf566202f205e6b3ea1b\output\AndroidManifest.xml:11:5-12:19
+MERGED from [:Common-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\28cd297adc54b4ec66da857fe1ed27400edfef46\output\AndroidManifest.xml:11:5-12:19
+MERGED from [:Data-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\c1926cfbf12bd52a36ed057c6f5e32b18020696d\output\AndroidManifest.xml:11:5-12:19
+MERGED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\75290f55466549343bccb9f47ef60aeac80bb8df\output\AndroidManifest.xml:11:5-32:19
+MERGED from [:Gauges-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\1a278613f12d6bfacdbd014eb7b6370eb7ac1931\output\AndroidManifest.xml:11:5-12:19
+MERGED from [:Input-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\49d84ae9f3af5ba5bfc0710162880313b13127be\output\AndroidManifest.xml:11:5-12:19
+MERGED from [:List-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\1893ef632e656e94002b18605fae594f7519dd54\output\AndroidManifest.xml:11:5-12:19
+MERGED from [:Primitives-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\b6200abe4708ba359b85d84304e3ffdb9cd455bb\output\AndroidManifest.xml:11:5-12:19
+MERGED from [:widgets-release:] C:\Users\Nanow\.android\build-cache\a930dd544ccda49dcbbf2830396b51bd43fc11a4\output\AndroidManifest.xml:11:5-12:19
 	android:label
 		ADDED from C:\Users\Nanow\OneDrive\Documents\GitHub\WHSApp\platforms\android\app\src\main\AndroidManifest.xml:25:3-35
 	android:allowBackup
@@ -151,34 +151,34 @@ MERGED from [com.android.support:support-compat:26.0.0-alpha1] C:\Users\Nanow\.a
 	android:name
 		ADDED from [com.android.support:design:26.0.0-alpha1] C:\Users\Nanow\.android\build-cache\f56ccbd2f03d42b4be43a73823c3baccb804f71f\output\AndroidManifest.xml:26:9-47
 activity#com.telerik.widget.feedback.SendFeedbackActivity
-ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\df21f765bb93ae1be73f0b463b9b750381f7daa5\output\AndroidManifest.xml:12:9-16:20
+ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\75290f55466549343bccb9f47ef60aeac80bb8df\output\AndroidManifest.xml:12:9-16:20
 	android:label
-		ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\df21f765bb93ae1be73f0b463b9b750381f7daa5\output\AndroidManifest.xml:14:13-65
+		ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\75290f55466549343bccb9f47ef60aeac80bb8df\output\AndroidManifest.xml:14:13-65
 	android:theme
-		ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\df21f765bb93ae1be73f0b463b9b750381f7daa5\output\AndroidManifest.xml:15:13-50
+		ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\75290f55466549343bccb9f47ef60aeac80bb8df\output\AndroidManifest.xml:15:13-50
 	android:name
-		ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\df21f765bb93ae1be73f0b463b9b750381f7daa5\output\AndroidManifest.xml:13:13-76
+		ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\75290f55466549343bccb9f47ef60aeac80bb8df\output\AndroidManifest.xml:13:13-76
 activity#com.telerik.widget.feedback.ViewFeedbackActivity
-ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\df21f765bb93ae1be73f0b463b9b750381f7daa5\output\AndroidManifest.xml:17:9-21:20
+ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\75290f55466549343bccb9f47ef60aeac80bb8df\output\AndroidManifest.xml:17:9-21:20
 	android:label
-		ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\df21f765bb93ae1be73f0b463b9b750381f7daa5\output\AndroidManifest.xml:19:13-65
+		ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\75290f55466549343bccb9f47ef60aeac80bb8df\output\AndroidManifest.xml:19:13-65
 	android:theme
-		ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\df21f765bb93ae1be73f0b463b9b750381f7daa5\output\AndroidManifest.xml:20:13-50
+		ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\75290f55466549343bccb9f47ef60aeac80bb8df\output\AndroidManifest.xml:20:13-50
 	android:name
-		ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\df21f765bb93ae1be73f0b463b9b750381f7daa5\output\AndroidManifest.xml:18:13-76
+		ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\75290f55466549343bccb9f47ef60aeac80bb8df\output\AndroidManifest.xml:18:13-76
 activity#com.telerik.widget.feedback.ViewFeedbackItemActivity
-ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\df21f765bb93ae1be73f0b463b9b750381f7daa5\output\AndroidManifest.xml:22:9-26:20
+ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\75290f55466549343bccb9f47ef60aeac80bb8df\output\AndroidManifest.xml:22:9-26:20
 	android:label
-		ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\df21f765bb93ae1be73f0b463b9b750381f7daa5\output\AndroidManifest.xml:24:13-65
+		ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\75290f55466549343bccb9f47ef60aeac80bb8df\output\AndroidManifest.xml:24:13-65
 	android:theme
-		ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\df21f765bb93ae1be73f0b463b9b750381f7daa5\output\AndroidManifest.xml:25:13-50
+		ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\75290f55466549343bccb9f47ef60aeac80bb8df\output\AndroidManifest.xml:25:13-50
 	android:name
-		ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\df21f765bb93ae1be73f0b463b9b750381f7daa5\output\AndroidManifest.xml:23:13-80
+		ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\75290f55466549343bccb9f47ef60aeac80bb8df\output\AndroidManifest.xml:23:13-80
 activity#com.telerik.widget.feedback.EditDetailsActivity
-ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\df21f765bb93ae1be73f0b463b9b750381f7daa5\output\AndroidManifest.xml:27:9-31:20
+ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\75290f55466549343bccb9f47ef60aeac80bb8df\output\AndroidManifest.xml:27:9-31:20
 	android:label
-		ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\df21f765bb93ae1be73f0b463b9b750381f7daa5\output\AndroidManifest.xml:29:13-64
+		ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\75290f55466549343bccb9f47ef60aeac80bb8df\output\AndroidManifest.xml:29:13-64
 	android:theme
-		ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\df21f765bb93ae1be73f0b463b9b750381f7daa5\output\AndroidManifest.xml:30:13-50
+		ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\75290f55466549343bccb9f47ef60aeac80bb8df\output\AndroidManifest.xml:30:13-50
 	android:name
-		ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\df21f765bb93ae1be73f0b463b9b750381f7daa5\output\AndroidManifest.xml:28:13-75
+		ADDED from [:Feedback-2017.1.1221-dev-release:] C:\Users\Nanow\.android\build-cache\75290f55466549343bccb9f47ef60aeac80bb8df\output\AndroidManifest.xml:28:13-75

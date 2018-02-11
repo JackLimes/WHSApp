@@ -5,8 +5,21 @@ purpose of the file is to pass control to the app’s first module.
 */
 import * as app from "application";
 import "./bundle-config";
+const firebase = require("nativescript-plugin-firebase");
 
-app.start({ moduleName: "home/home-page" });
+firebase.init({
+  // Optionally pass in properties for database, authentication and cloud messaging,
+  // see their respective docs.
+}).then(
+  (instance) => {
+    console.log("firebase.init done");
+  },
+  (error) => {
+    console.log(`firebase.init error: ${error}`);
+  }
+);
+
+app.start({ moduleName: "login/login-page" });
 
 /*
 Do not place any code after the application has been started as it will not

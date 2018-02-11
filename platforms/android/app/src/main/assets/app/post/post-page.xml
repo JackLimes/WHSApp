@@ -64,7 +64,7 @@
                 <!--this date picker can be filled with any data. It will change to today's date upon the page loading (because I don't know how to code any better) -->
                 <ListPicker id="listPicker" selectedIndex="0" />
                 <StackLayout class="hr-light"></StackLayout> <!-- a small line to separate ui -->
-                <DatePicker id="date" items="{{ pokemon }}" day="15" month="5" year="2015" verticalAlignment="center"></DatePicker>
+                <DatePicker id="date" day="15" month="5" year="2015" verticalAlignment="center"></DatePicker>
                 <Button id="butt" text="Post Event" tap="postAnn" />
             </StackLayout>
         </nsDrawer:RadSideDrawer.mainContent>

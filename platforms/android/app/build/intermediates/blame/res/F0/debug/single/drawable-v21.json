@@ -1,7 +1,7 @@
 [
     {
         "merged": "C:\\Users\\Nanow\\OneDrive\\Documents\\GitHub\\WHSApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-v21\\autocomplete_focusable_bg.xml",
-        "source": "C:\\Users\\Nanow\\.android\\build-cache\\4a8df62043a746ba61749e908a824bf836a3b0cb\\output\\res\\drawable-v21\\autocomplete_focusable_bg.xml"
+        "source": "C:\\Users\\Nanow\\.android\\build-cache\\49d84ae9f3af5ba5bfc0710162880313b13127be\\output\\res\\drawable-v21\\autocomplete_focusable_bg.xml"
     },
     {
         "merged": "C:\\Users\\Nanow\\OneDrive\\Documents\\GitHub\\WHSApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-v21\\design_password_eye.xml",
@@ -13,7 +13,7 @@
     },
     {
         "merged": "C:\\Users\\Nanow\\OneDrive\\Documents\\GitHub\\WHSApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-v21\\autocomplete_bg_normal.xml",
-        "source": "C:\\Users\\Nanow\\.android\\build-cache\\4a8df62043a746ba61749e908a824bf836a3b0cb\\output\\res\\drawable-v21\\autocomplete_bg_normal.xml"
+        "source": "C:\\Users\\Nanow\\.android\\build-cache\\49d84ae9f3af5ba5bfc0710162880313b13127be\\output\\res\\drawable-v21\\autocomplete_bg_normal.xml"
     },
     {
         "merged": "C:\\Users\\Nanow\\NativeScript_Projects\\newWHS\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-v21\\autocomplete_bg_normal.xml",
@@ -73,11 +73,11 @@
     },
     {
         "merged": "C:\\Users\\Nanow\\OneDrive\\Documents\\GitHub\\WHSApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-v21\\autocomplete_bg_active.xml",
-        "source": "C:\\Users\\Nanow\\.android\\build-cache\\4a8df62043a746ba61749e908a824bf836a3b0cb\\output\\res\\drawable-v21\\autocomplete_bg_active.xml"
+        "source": "C:\\Users\\Nanow\\.android\\build-cache\\49d84ae9f3af5ba5bfc0710162880313b13127be\\output\\res\\drawable-v21\\autocomplete_bg_active.xml"
     },
     {
         "merged": "C:\\Users\\Nanow\\OneDrive\\Documents\\GitHub\\WHSApp\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-v21\\pressable_item_background.xml",
-        "source": "C:\\Users\\Nanow\\.android\\build-cache\\3761d6e32f114b61b3d0e57d4a9511c382d6ab38\\output\\res\\drawable-v21\\pressable_item_background.xml"
+        "source": "C:\\Users\\Nanow\\.android\\build-cache\\1893ef632e656e94002b18605fae594f7519dd54\\output\\res\\drawable-v21\\pressable_item_background.xml"
     },
     {
         "merged": "C:\\Users\\Nanow\\NativeScript_Projects\\newWHS\\platforms\\android\\app\\build\\intermediates\\res\\merged\\F0\\debug\\drawable-v21\\notification_action_background.xml",

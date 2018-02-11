@@ -1,5 +1,5 @@
 import { Observable } from "data/observable";
-
+import firebase = require("nativescript-plugin-firebase");
 import { ObservableProperty } from "../../shared/observable-property-decorator";
 
 /* ***********************************************************
@@ -7,6 +7,9 @@ import { ObservableProperty } from "../../shared/observable-property-decorator";
 *************************************************************/
 export class DrawerViewModel extends Observable {
     @ObservableProperty() selectedPage: string;
+    @ObservableProperty() email: string;
+    @ObservableProperty() username: string;
+    @ObservableProperty() imgurl: string;
 
     /* ***********************************************************
     * Use the drawer view model constructor to initialize the properties data values.
@@ -14,7 +17,13 @@ export class DrawerViewModel extends Observable {
 
     constructor(selectedPage: string) {
         super();
-
+        firebase.getCurrentUser().then((user) => {
+            this.email = user.email;
+            this.username = user.name;
+            this.imgurl = user.profileImageURL;
+        }, (error) => {
+            alert("FB ERROR: " + error);
+        });
         this.selectedPage = selectedPage;
     }
 }

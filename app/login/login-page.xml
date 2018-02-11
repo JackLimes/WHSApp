@@ -1,0 +1,21 @@
+<Page
+    class="page"
+    navigatingTo="onNavigatingTo"  
+    navigatedTo="onNavigatedTo"
+    xmlns:nsDrawer="nativescript-pro-ui/sidedrawer"
+    xmlns:drawer="shared/drawer"
+    xmlns="http://schemas.nativescript.org/tns.xsd">
+
+    <ActionBar class="action-bar">
+        <ActionItem icon="res://navigation/menu" 
+            android:visibility="collapsed" 
+            tap="onDrawerButtonTap"
+            ios.position="left">
+        </ActionItem>
+        <Label class="action-bar-title" text="Login"></Label>
+    </ActionBar>
+    <StackLayout id="mainStack">
+        <Image src="~/images/west-hs.png"/>
+        <Button id="loginButton" text="Login with Google" tap="authentificate" />
+    </StackLayout>
+</Page>
