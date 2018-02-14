@@ -16,6 +16,6 @@
     </ActionBar>
     <StackLayout id="mainStack">
         <Image src="~/images/west-hs.png"/>
-        <Button id="loginButton" text="Login with Google" tap="authentificate" />
+        <Image src="~/images/google_sign_in.png" tap="authentificate"/>        
     </StackLayout>
 </Page>

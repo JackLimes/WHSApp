@@ -2,6 +2,7 @@
     "@angular/core": true,
     "nativescript-plugin-firebase": true,
     "nativescript-pro-ui": true,
+    "nativescript-pulltorefresh": true,
     "nativescript-theme-core": true,
     "rxjs": true,
     "tns-core-modules": true,

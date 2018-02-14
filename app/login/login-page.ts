@@ -28,11 +28,40 @@ export function authentificate(args: EventData) {
         type: firebase.LoginType.GOOGLE
       }).then(
           (result) => {
-            console.log(JSON.stringify(result));
+            register();
             topmost().navigate("home/home-page");
+            console.log("User ID: " + result.uid);
           },
           (errorMessage) => {
             console.log(errorMessage);
           }
       );
+}
+
+export function register() {
+    // This runs everytime. It won't reregister on server side.
+    const url = "http://24.217.249.216/phpfiles/register.php";
+    const xmlhttp = new XMLHttpRequest();
+
+    firebase.getCurrentUser().then((user) => {
+        const request = JSON.stringify({uid: user.uid});
+
+        xmlhttp.open("POST", url);
+        xmlhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+        xmlhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
+        xmlhttp.setRequestHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+        xmlhttp.setRequestHeader("Access-Control-Allow-Headers", "Content-Type");
+        xmlhttp.setRequestHeader("Access-Control-Request-Headers", "X-Requested-With, accept, content-type");
+
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                const jsondata = JSON.parse(this.responseText);
+                console.log(jsondata);
+            }
+        };
+        xmlhttp.send(request);
+
+    }, (error) => {
+        alert("FB ERROR: " + error);
+    });
 }

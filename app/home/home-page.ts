@@ -1,4 +1,5 @@
 import { EventData } from "data/observable";
+import firebase = require("nativescript-plugin-firebase");
 import { RadSideDrawer } from "nativescript-pro-ui/sidedrawer";
 import { ActivityIndicator } from "tns-core-modules/ui/activity-indicator";
 import { Button } from "tns-core-modules/ui/button";
@@ -18,20 +19,22 @@ export function onNavigatingTo(args: NavigatedData) {
     * Skipping the re-initialization on back navigation means the user will see the
     * page in the same data state that he left it in before navigating.
     *************************************************************/
+    const page = <Page>args.object;
     if (args.isBackNavigation) {
+        const ind = <ActivityIndicator>page.getViewById("activityIndicator");
+        ind.visibility = "visible";
+        loadAnn(args);
+
         return;
     }
 
-    const page = <Page>args.object;
     page.bindingContext = new HomeViewModel();
 
     console.log("Navigating");
-    loadAnn();
 }
 
 export function onNavigatedTo(args: NavigatedData) {
     console.log("Navigated");
-    loadAnn();
 }
 
 /* ***********************************************************
@@ -64,77 +67,65 @@ export function doubledildo(args: EventData) {
     }
 }
 
-export function sqltest(args: EventData) {
-    const url = "http://24.217.249.216/phpfiles/nsparseq.php";
-    const request = JSON.stringify({indat: "anime club"});
-    const xmlhttp = new XMLHttpRequest();
+export function loadAnn(args) {
+    firebase.getCurrentUser().then((user) => {
+        const request = JSON.stringify({uid: user.uid});
+        console.log(request);
+        const page = <Page>args.object;
+        const stack = <StackLayout>page.getViewById("slayout");
+        const url = "http://24.217.249.216/phpfiles/getann.php";
+        const xmlhttp = new XMLHttpRequest();
 
-    xmlhttp.open("POST", url);
-    xmlhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-    xmlhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
-    xmlhttp.setRequestHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-    xmlhttp.setRequestHeader("Access-Control-Allow-Headers", "Content-Type");
-    xmlhttp.setRequestHeader("Access-Control-Request-Headers", "X-Requested-With, accept, content-type");
+        xmlhttp.open("POST", url);
+        xmlhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+        xmlhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
+        xmlhttp.setRequestHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+        xmlhttp.setRequestHeader("Access-Control-Allow-Headers", "Content-Type");
+        xmlhttp.setRequestHeader("Access-Control-Request-Headers", "X-Requested-With, accept, content-type");
 
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState === 4 && this.status === 200) {
-            // var jsondata = JSON.parse(this.responseText);
-            const lbl = new Label();
-            const stack = <StackLayout>topmost().getViewById("slayout");
-            lbl.textWrap = true;
-            lbl.text = JSON.parse(this.responseText);
-            stack.addChild(lbl);
-        }
-    };
-    xmlhttp.send(request);
-}
-
-export function loadAnn() {
-    const stack = <StackLayout>topmost().getViewById("slayout");
-    const url = "http://24.217.249.216/phpfiles/getann.php";
-    const xmlhttp = new XMLHttpRequest();
-
-    xmlhttp.open("POST", url);
-    xmlhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-    xmlhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
-    xmlhttp.setRequestHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-    xmlhttp.setRequestHeader("Access-Control-Allow-Headers", "Content-Type");
-    xmlhttp.setRequestHeader("Access-Control-Request-Headers", "X-Requested-With, accept, content-type");
-
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState === 4 && this.status === 200) {
-            const activityIndicator = <ActivityIndicator>topmost().getViewById("activityIndicator");
-            activityIndicator.visibility = "collapse";
-            const resobj = JSON.parse(this.responseText);
-            const count = resobj.title.length; // # of items in the array, not the # of characters in the title
-            let btn;
-            let lbl;
-            let onDate;
-            for (let i = 0; i < count; i++) {
-                if (resobj.birth[i] !== onDate) {
-                    onDate = resobj.birth[i];
-                    lbl = new Label();
-                    lbl.class = "date";
-                    lbl.text = resobj.birth[i];
-                    stack.addChild(lbl);
-                }
-                btn = new Button();
-                btn.text = "[" + resobj.club[i] + "] " + resobj.title[i];
-                btn.backgroundColor = resobj.color[i];
-                btn.on(Button.tapEvent, () => {
+        xmlhttp.onreadystatechange = function() {
+            stack.removeChildren();
+            if (this.readyState === 4 && this.status === 200) {
+                const activityIndicator = <ActivityIndicator>page.getViewById("activityIndicator");
+                activityIndicator.visibility = "collapse";
+                const resobj = JSON.parse(this.responseText);
+                const count = resobj.title.length; // # of items in the array, not the # of characters in the title
+                let btn;
+                let lbl;
+                let onDate;
+                for (let i = 0; i < count; i++) {
+                    if (resobj.birth[i] !== onDate) {
+                        onDate = resobj.birth[i];
+                        lbl = new Label();
+                        lbl.class = "date";
+                        lbl.text = resobj.birth[i];
+                        stack.addChild(lbl);
+                    }
+                    btn = new Button();
+                    btn.text = "[" + resobj.club[i] + "] " + resobj.title[i];
+                    btn.backgroundColor = resobj.color[i];
+                    btn.on(Button.tapEvent, () => {
                     dialogs.alert({
                         title: resobj.club[i],
-                        message: resobj.desc[i],
+                        message: resobj.desc[i] + resobj.clubid[i],
                         okButtonText: "Close"
                     });
                 });
-                stack.addChild(btn);
+                    stack.addChild(btn);
             }
         }
     };
-    xmlhttp.send();
+        xmlhttp.send(request);
+    }, (error) => {
+        alert("FB ERROR: " + error);
+    });
 }
 
 export function onLoaded(args) {
+    loadAnn(args);
     console.log("loading announcments");
+}
+
+export function refresh(args) {
+return;
 }

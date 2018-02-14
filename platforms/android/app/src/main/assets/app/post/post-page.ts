@@ -57,7 +57,7 @@ export function postAnn() {
 
     // Create object to pass to php
     // tslint:disable-next-line:max-line-length
-    const request = JSON.stringify({title: title.text, club: clubarr[lPicker.selectedIndex], description: desc.text, birth: fDate, color: hexColor});
+    const request = JSON.stringify({title: title.text, club: clubarr[lPicker.selectedIndex], description: desc.text, birth: fDate, color: hexColor, clubid: clubidarr[lPicker.selectedIndex]});
 
     xmlhttp.open("POST", url);
     xmlhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
@@ -89,6 +89,7 @@ export function onNavigatedTo() {
 // club name and color array intialize
 let clubarr;
 let colorarr;
+let clubidarr;
 export function getClubs() {
     const url = "http://24.217.249.216/phpfiles/getclubs.php";
     const xmlhttp = new XMLHttpRequest();
@@ -103,6 +104,7 @@ export function getClubs() {
             const jsondata = JSON.parse(this.responseText);
             clubarr = jsondata.name;
             colorarr = jsondata.color;
+            clubidarr = jsondata.id;
             const lPicker = <ListPicker>topmost().getViewById("listPicker");
             lPicker.items = clubarr;
         }

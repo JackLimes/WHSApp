@@ -32,6 +32,8 @@ C:\Users\Nanow\OneDrive\Documents\GitHub\WHSApp\platforms\android\app\src\main\a
 C:\Users\Nanow\OneDrive\Documents\GitHub\WHSApp\platforms\android\app\src\main\assets\app\tns_modules\nativescript-plugin-firebase\scripts\entitlements-before-prepare.js
 C:\Users\Nanow\OneDrive\Documents\GitHub\WHSApp\platforms\android\app\src\main\assets\app\tns_modules\nativescript-plugin-firebase\scripts\postinstall.js
 C:\Users\Nanow\OneDrive\Documents\GitHub\WHSApp\platforms\android\app\src\main\assets\app\tns_modules\nativescript-pro-ui\scripts\eula-prompt.js
+C:\Users\Nanow\OneDrive\Documents\GitHub\WHSApp\platforms\android\app\src\main\assets\app\tns_modules\nativescript-pulltorefresh\pulltorefresh-common.js
+C:\Users\Nanow\OneDrive\Documents\GitHub\WHSApp\platforms\android\app\src\main\assets\app\tns_modules\nativescript-pulltorefresh\pulltorefresh.js
 C:\Users\Nanow\OneDrive\Documents\GitHub\WHSApp\platforms\android\app\src\main\assets\app\tns_modules\tns-core-modules\bundle-entry-points.js
 C:\Users\Nanow\OneDrive\Documents\GitHub\WHSApp\platforms\android\app\src\main\assets\app\tns_modules\tns-core-modules\application\application-common.js
 C:\Users\Nanow\OneDrive\Documents\GitHub\WHSApp\platforms\android\app\src\main\assets\app\tns_modules\tns-core-modules\application\application.js

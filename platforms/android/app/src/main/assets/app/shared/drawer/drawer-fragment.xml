@@ -49,7 +49,7 @@ Feel free to customize layouts and components to change how your app drawer look
                 <Label row="0" col="0" text="&#xf013;" class="fa" />
                 <Label row="0" col="1" text="Settings" class="p-r-10" />
             </GridLayout>
-            <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Settings' ? ' selected': '') }}"
+            <GridLayout columns="auto, *" class="{{ 'sidedrawer-list-item' + (selectedPage === 'Logout' ? ' selected': '') }}"
                 route="login/login-page" tap="onLogoutTap">
                 <Label row="0" col="0" text="&#xf052;" class="fa" />
                 <Label row="0" col="1" text="Logout" class="p-r-10" />
