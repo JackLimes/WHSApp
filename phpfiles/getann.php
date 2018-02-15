@@ -32,7 +32,7 @@
 
     //make the query
     //get ALL THE DATA for now.
-    $sql = "SELECT title, club, description, DATE_FORMAT(birth, '%m/%d/%y'), color, clubid FROM announcement WHERE JSON_CONTAINS('$jsonSubs', CONVERT(clubid USING latin1)) ORDER BY birth";
+    $sql = "SELECT title, club, description, DATE_FORMAT(birth, '%m/%d/%y'), color, clubid FROM announcement WHERE JSON_CONTAINS('$jsonSubs', CONVERT(clubid USING latin1)) ORDER BY birth DESC";
     $result = $mysqli->query($sql); //assing the result
 
     

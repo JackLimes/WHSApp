@@ -14,8 +14,8 @@
         </ActionItem>
         <Label class="action-bar-title" text="Login"></Label>
     </ActionBar>
-    <StackLayout id="mainStack">
-        <Image src="~/images/west-hs.png"/>
-        <Image src="~/images/google_sign_in.png" tap="authentificate"/>        
+    <StackLayout id="mainStack" backgroundColor = "#202020">
+        <Image class="logo" src="res://logo"/>
+        <Image class="signin" src="~/images/google_sign_in.png" tap="authentificate"/>        
     </StackLayout>
 </Page>
