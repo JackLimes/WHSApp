@@ -40,7 +40,7 @@ export function authentificate(args: EventData) {
 
 export function register() {
     // This runs everytime. It won't reregister on server side.
-    const url = "http://24.217.249.216/phpfiles/register.php";
+    const url = "https://fzwestboard.000webhostapp.com/register.php";
     const xmlhttp = new XMLHttpRequest();
 
     firebase.getCurrentUser().then((user) => {
