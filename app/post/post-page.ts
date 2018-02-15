@@ -43,7 +43,7 @@ export function onDrawerButtonTap(args: EventData) {
 }
 
 export function postAnn() {
-    const url = "http://24.217.249.216/phpfiles/postann.php";
+    const url = "https://fzwestboard.000webhostapp.com/postann.php";
     const xmlhttp = new XMLHttpRequest();
 
     const title = <TextField>topmost().getViewById("title");
@@ -91,7 +91,7 @@ let clubarr;
 let colorarr;
 let clubidarr;
 export function getClubs() {
-    const url = "http://24.217.249.216/phpfiles/getclubs.php";
+    const url = "https://fzwestboard.000webhostapp.com/getclubs.php";
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.open("POST", url);
     xmlhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
