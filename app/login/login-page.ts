@@ -44,7 +44,7 @@ export function register() {
     const xmlhttp = new XMLHttpRequest();
 
     firebase.getCurrentUser().then((user) => {
-        const request = JSON.stringify({uid: user.uid});
+        const request = JSON.stringify({uid: user.uid, email: user.email});
 
         xmlhttp.open("POST", url);
         xmlhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
