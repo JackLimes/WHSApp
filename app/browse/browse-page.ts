@@ -8,6 +8,8 @@ import { topmost } from "ui/frame";
 import { NavigatedData, Page } from "ui/page";
 import { BrowseViewModel } from "./browse-view-model";
 
+/* tslint:disable:prefer-conditional-expression */
+
 /* ***********************************************************
 * Use the "onNavigatingTo" handler to initialize the page binding context.
 *************************************************************/
@@ -37,6 +39,7 @@ export function onDrawerButtonTap(args: EventData) {
 
 export function onLoad(args) {
     putClubs(args);
+    getsubs();
 }
 
 export function putClubs(args) {
@@ -68,22 +71,19 @@ export function putClubs(args) {
                 stack.addChild(desc);
                 let tapped = false;
                 stack.on("tap", () => {
-                    if(tapped == false){
+                    if (tapped === false) {
                         tapped = true;
-                    }else{
+                    } else {
                         tapped = false;
                     }
 
-                    if(tapped){
+                    if (tapped) {
                         stack.backgroundColor = "#48f442"; // light green
                         subscribe(jsondata.id[i]);
-                    }else{
+                    } else {
                         stack.backgroundColor = "#FFFFFF"; // white
                         unsubscribe(jsondata.id[i]);
                     }
-
-                    
-                    
                 });
                 const active = <ActivityIndicator>page.getViewById("activityIndicator");
                 active.visibility = "collapse";
@@ -94,9 +94,9 @@ export function putClubs(args) {
     xmlhttp.send();
 }
 
-export function subscribe(clubid) { // unfinished
+export function subscribe(clubidin) { // unfinished
     firebase.getCurrentUser().then((user) => {
-        const request = JSON.stringify({uid: user.uid, clubid: clubid});
+        const request = JSON.stringify({uid: user.uid, clubid: clubidin});
         console.log(request);
         const url = "https://fzwestboard.000webhostapp.com/subscribe.php";
         const xmlhttp = new XMLHttpRequest();
@@ -119,9 +119,9 @@ export function subscribe(clubid) { // unfinished
     });
 }
 
-export function unsubscribe(clubid) { // unfinished
+export function unsubscribe(clubidin) { // unfinished
     firebase.getCurrentUser().then((user) => {
-        const request = JSON.stringify({uid: user.uid, clubid: clubid});
+        const request = JSON.stringify({uid: user.uid, clubid: clubidin});
         console.log(request);
         const url = "https://fzwestboard.000webhostapp.com/unsubscribe.php";
         const xmlhttp = new XMLHttpRequest();
@@ -144,3 +144,34 @@ export function unsubscribe(clubid) { // unfinished
     });
 }
 
+let sublist;
+
+export function getsubs() { // unfinished
+    console.log("running getsubs");
+    firebase.getCurrentUser().then((user) => {
+        const request = JSON.stringify({uid: user.uid});
+        console.log(request);
+        const url = "https://fzwestboard.000webhostapp.com/subcheck.php";
+        const xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.open("POST", url);
+        xmlhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+        xmlhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
+        xmlhttp.setRequestHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+        xmlhttp.setRequestHeader("Access-Control-Allow-Headers", "Content-Type");
+        xmlhttp.setRequestHeader("Access-Control-Request-Headers", "X-Requested-With, accept, content-type");
+
+        xmlhttp.onreadystatechange = function() {
+            console.log("ready");
+            if (this.readyState === 4 && this.status === 200) {
+                console.log("inside");
+                sublist = JSON.parse(this.responseText);
+                console.log("that's in");
+                console.log(sublist);
+        }
+    };
+        xmlhttp.send(request);
+    }, (error) => {
+        alert("FB ERROR: " + error);
+    });
+}
