@@ -42,7 +42,7 @@ export function onLoad(args) {
 export function putClubs(args) {
     const page = <Page>args.object;
     const container = <StackLayout>page.getViewById("clubContainer");
-    const url = "http://24.217.249.216/phpfiles/getclubs.php";
+    const url = "https://fzwestboard.000webhostapp.com/getclubs.php";
     const xmlhttp = new XMLHttpRequest();
     xmlhttp.open("POST", url);
     xmlhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
@@ -66,8 +66,20 @@ export function putClubs(args) {
                 desc.text = jsondata.desc[i];
                 stack.addChild(title);
                 stack.addChild(desc);
+                let tapped = false;
                 stack.on("tap", () => {
-                    stack.backgroundColor = "#48f442"; // light green
+                    if(tapped == false){
+                        tapped = true;
+                    }else{
+                        tapped = false
+                    }
+
+                    if(tapped){
+                        stack.backgroundColor = "#48f442"; // light green
+                    }else{
+                        stack.backgroundColor = "#FFFFFF"; // white
+                    }
+                    
                 });
                 const active = <ActivityIndicator>page.getViewById("activityIndicator");
                 active.visibility = "collapse";
@@ -82,7 +94,7 @@ export function subscribe(stack, clubid) { // unfinished
     firebase.getCurrentUser().then((user) => {
         const request = JSON.stringify({uid: user.uid});
         console.log(request);
-        const url = "http://24.217.249.216/phpfiles/subscribe.php";
+        const url = "https://fzwestboard.000webhostapp.com/subscribe.php";
         const xmlhttp = new XMLHttpRequest();
 
         xmlhttp.open("POST", url);
