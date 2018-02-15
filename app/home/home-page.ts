@@ -73,7 +73,7 @@ export function loadAnn(args) {
         console.log(request);
         const page = <Page>args.object;
         const stack = <StackLayout>page.getViewById("slayout");
-        const url = "http://24.217.249.216/phpfiles/getann.php";
+        const url = "https://fzwestboard.000webhostapp.com/getann.php";
         const xmlhttp = new XMLHttpRequest();
 
         xmlhttp.open("POST", url);

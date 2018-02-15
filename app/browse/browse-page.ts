@@ -71,14 +71,18 @@ export function putClubs(args) {
                     if(tapped == false){
                         tapped = true;
                     }else{
-                        tapped = false
+                        tapped = false;
                     }
 
                     if(tapped){
                         stack.backgroundColor = "#48f442"; // light green
+                        subscribe(jsondata.id[i]);
                     }else{
                         stack.backgroundColor = "#FFFFFF"; // white
+                        unsubscribe(jsondata.id[i]);
                     }
+
+                    
                     
                 });
                 const active = <ActivityIndicator>page.getViewById("activityIndicator");
@@ -90,9 +94,9 @@ export function putClubs(args) {
     xmlhttp.send();
 }
 
-export function subscribe(stack, clubid) { // unfinished
+export function subscribe(clubid) { // unfinished
     firebase.getCurrentUser().then((user) => {
-        const request = JSON.stringify({uid: user.uid});
+        const request = JSON.stringify({uid: user.uid, clubid: clubid});
         console.log(request);
         const url = "https://fzwestboard.000webhostapp.com/subscribe.php";
         const xmlhttp = new XMLHttpRequest();
@@ -105,7 +109,6 @@ export function subscribe(stack, clubid) { // unfinished
         xmlhttp.setRequestHeader("Access-Control-Request-Headers", "X-Requested-With, accept, content-type");
 
         xmlhttp.onreadystatechange = function() {
-            stack.removeChildren();
             if (this.readyState === 4 && this.status === 200) {
                 const resobj = JSON.parse(this.responseText);
         }
@@ -115,3 +118,29 @@ export function subscribe(stack, clubid) { // unfinished
         alert("FB ERROR: " + error);
     });
 }
+
+export function unsubscribe(clubid) { // unfinished
+    firebase.getCurrentUser().then((user) => {
+        const request = JSON.stringify({uid: user.uid, clubid: clubid});
+        console.log(request);
+        const url = "https://fzwestboard.000webhostapp.com/unsubscribe.php";
+        const xmlhttp = new XMLHttpRequest();
+
+        xmlhttp.open("POST", url);
+        xmlhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+        xmlhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
+        xmlhttp.setRequestHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+        xmlhttp.setRequestHeader("Access-Control-Allow-Headers", "Content-Type");
+        xmlhttp.setRequestHeader("Access-Control-Request-Headers", "X-Requested-With, accept, content-type");
+
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState === 4 && this.status === 200) {
+                const resobj = JSON.parse(this.responseText);
+        }
+    };
+        xmlhttp.send(request);
+    }, (error) => {
+        alert("FB ERROR: " + error);
+    });
+}
+
