@@ -1,0 +1,45 @@
+<html>
+        <head>
+        <script>
+        function showHint(str) {
+            var url = "http://24.217.249.216/phpfiles/getann.php";
+            var request = JSON.stringify({indat: str});
+
+            if (str.length == 0) {
+                document.getElementById("txtHint").innerHTML = "Empty";
+                return;
+            } else {
+                var xmlhttp = new XMLHttpRequest();
+
+                xmlhttp.open("POST", url);
+                xmlhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
+                xmlhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
+                xmlhttp.setRequestHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
+                xmlhttp.setRequestHeader("Access-Control-Allow-Headers", "Content-Type");
+                xmlhttp.setRequestHeader("Access-Control-Request-Headers", "X-Requested-With, accept, content-type");
+
+                xmlhttp.onreadystatechange = function() {
+                    if (this.readyState == 4 && this.status == 200) {
+                        //var jsondata = JSON.parse(this.responseText);
+                        var resobj = JSON.parse(this.responseText);
+                        document.getElementById("txtHint").innerHTML = "";
+                        for(let i = 0; i < resobj.title.length; i++) {
+                            document.getElementById("txtHint").innerHTML += resobj.title[i] + resobj.club[i] + resobj.desc[i] + resobj.birth[i];
+                        }                        
+                    }
+                };
+                
+                xmlhttp.send(request);
+            }
+        }
+        </script>
+        </head>
+        <body>
+        
+        <p><b>Start typing a name in the input field below:</b></p>
+        <form>
+        First name: <input type="text" onkeyup="showHint(this.value)">
+        </form>
+        <p>Suggestions: <span id="txtHint"></span></p>
+        </body>
+        </html> 

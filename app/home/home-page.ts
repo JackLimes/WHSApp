@@ -107,7 +107,7 @@ export function loadAnn(args) {
                     btn.on(Button.tapEvent, () => {
                     dialogs.alert({
                         title: resobj.club[i],
-                        message: resobj.desc[i] + resobj.clubid[i],
+                        message: resobj.desc[i],
                         okButtonText: "Close"
                     });
                 });
