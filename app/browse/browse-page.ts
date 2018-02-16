@@ -38,8 +38,8 @@ export function onDrawerButtonTap(args: EventData) {
 }
 
 export function onLoad(args) {
-    putClubs(args);
     getsubs();
+    putClubs(args);
 }
 
 export function putClubs(args) {
@@ -55,9 +55,12 @@ export function putClubs(args) {
     xmlhttp.setRequestHeader("Access-Control-Request-Headers", "X-Requested-With, accept, content-type");
     xmlhttp.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
+            console.log("I'm inside the putclubs" + sublist);
             const jsondata = JSON.parse(this.responseText);
+            console.log(this.responseText);
             const length = jsondata.name.length;
             for (let i = 0; i < length; i++) {
+                console.log("in for loop");
                 const stack = new StackLayout();
                 const title = new Label();
                 title.className = "title";
@@ -69,22 +72,29 @@ export function putClubs(args) {
                 desc.text = jsondata.desc[i];
                 stack.addChild(title);
                 stack.addChild(desc);
-                let tapped = false;
+                console.log("starting in");
+                let subscribed = jsondata.id[i] in sublist;
+                console.log("finished that" + subscribed);
+
                 stack.on("tap", () => {
-                    if (tapped === false) {
-                        tapped = true;
+                    if (subscribed === false) { // talk with db
+                        subscribed = true;
+                        subscribe(jsondata.id[i]);
+                        stack.backgroundColor = "#48f442";
                     } else {
-                        tapped = false;
+                        subscribed = false;
+                        unsubscribe(jsondata.id[i]);
+                        stack.backgroundColor = "#FFFFFF";
                     }
 
-                    if (tapped) {
-                        stack.backgroundColor = "#48f442"; // light green
-                        subscribe(jsondata.id[i]);
-                    } else {
-                        stack.backgroundColor = "#FFFFFF"; // white
-                        unsubscribe(jsondata.id[i]);
-                    }
+                    getsubs(); // refresh sub list
                 });
+
+                if (subscribed) { // set the color
+                    stack.backgroundColor = "#48f442"; // light green
+                } else {
+                    stack.backgroundColor = "#FFFFFF"; // white
+                }
                 const active = <ActivityIndicator>page.getViewById("activityIndicator");
                 active.visibility = "collapse";
                 container.addChild(stack);
