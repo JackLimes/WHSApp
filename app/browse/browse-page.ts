@@ -3,7 +3,9 @@ import observableModule = require("data/observable");
 import firebase = require("nativescript-plugin-firebase");
 import { RadSideDrawer } from "nativescript-pro-ui/sidedrawer";
 import { ActivityIndicator } from "tns-core-modules/ui/activity-indicator";
+import { Button } from "tns-core-modules/ui/button";
 import { Label } from "tns-core-modules/ui/label";
+import { GridLayout } from "tns-core-modules/ui/layouts/grid-layout";
 import { StackLayout } from "tns-core-modules/ui/layouts/stack-layout";
 import { topmost } from "ui/frame";
 import { NavigatedData, Page } from "ui/page";
@@ -78,14 +80,22 @@ export function putClubs(args) {
                 sublist = subresobj;
                 for (let i = 0; i < length; i++) {
                     const stack = new StackLayout();
+
                     const title = new Label();
                     title.className = "title";
                     title.textWrap = true;
+
                     const desc = new Label();
                     desc.className = "desc";
                     desc.textWrap = true;
+
+                    const btn = new Button();
+                    btn.text = "Subscribe";
+                    btn.width = 200;
+                    btn.horizontalAlignment = "right";
+
                     title.text = titles[i];
-                    //desc.text = descs[i]; 
+                    // desc.text = descs[i];
                     stack.on("tap", () => {
                         stack.backgroundColor = "#48f442";
                         console.log("tapped");
@@ -112,7 +122,8 @@ export function putClubs(args) {
                         });
                     });
                     stack.addChild(title);
-                    stack.addChild(desc);
+                    // stack.addChild(desc);
+                    stack.addChild(btn);
                     if (sublist.includes(ids[i])) { // set the color
                         stack.backgroundColor = "#48f442"; // light green
                     } else {
@@ -131,31 +142,6 @@ export function putClubs(args) {
             console.error(JSON.stringify(error));
         });
 
-    }, (error) => {
-        alert("FB ERROR: " + error);
-    });
-}
-
-export function subscribe(clubidin) { // unfinished
-    firebase.getCurrentUser().then((user) => {
-        const request = JSON.stringify({uid: user.uid, clubid: clubidin});
-        console.log(request);
-        const url = "https://fzwestboard.000webhostapp.com/subscribe.php";
-        const xmlhttp = new XMLHttpRequest();
-
-        xmlhttp.open("POST", url);
-        xmlhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-        xmlhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
-        xmlhttp.setRequestHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-        xmlhttp.setRequestHeader("Access-Control-Allow-Headers", "Content-Type");
-        xmlhttp.setRequestHeader("Access-Control-Request-Headers", "X-Requested-With, accept, content-type");
-
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState === 4 && this.status === 200) {
-                console.log(JSON.parse(this.responseText));
-        }
-    };
-        xmlhttp.send(request);
     }, (error) => {
         alert("FB ERROR: " + error);
     });
