@@ -85,7 +85,7 @@ export function putClubs(args) {
                     desc.className = "desc";
                     desc.textWrap = true;
                     title.text = titles[i];
-                    desc.text = descs[i];
+                    //desc.text = descs[i]; 
                     stack.on("tap", () => {
                         stack.backgroundColor = "#48f442";
                         console.log("tapped");
@@ -99,13 +99,13 @@ export function putClubs(args) {
                             sublist = JSON.parse(tapresult.content);
                             console.log("id: " + ids[i]);
                             console.log("Sublist: " + sublist);
-                            console.log("boolean: " + ids[i] in sublist);
-                            if (ids[i] in sublist) { // set the color
+                            console.log("boolean: " + sublist.includes(ids[i]));
+                            if (sublist.includes(ids[i])) { // set the color
                                 console.log(ids[i]);
                                 stack.backgroundColor = "#48f442"; // light green
                             } else {
                                 console.log(ids[i]);
-                                stack.backgroundColor = "#FF46FF"; // white
+                                stack.backgroundColor = "#FFFFFF"; // white
                             }
                         }, (error) => {
                             console.error(JSON.stringify(error));
@@ -113,8 +113,7 @@ export function putClubs(args) {
                     });
                     stack.addChild(title);
                     stack.addChild(desc);
-
-                    if (ids[i] in sublist) { // set the color
+                    if (sublist.includes(ids[i])) { // set the color
                         stack.backgroundColor = "#48f442"; // light green
                     } else {
                         stack.backgroundColor = "#FFFFFF"; // white
