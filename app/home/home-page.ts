@@ -9,6 +9,8 @@ import * as dialogs from "ui/dialogs";
 import { topmost } from "ui/frame";
 import { NavigatedData, Page } from "ui/page";
 import { HomeViewModel } from "./home-view-model";
+const http = require("http");
+/* tslint:disable:max-line-length jsdoc-format*/
 
 /* ***********************************************************
 * Use the "onNavigatingTo" handler to initialize the page binding context.
@@ -66,56 +68,48 @@ export function doubledildo(args: EventData) {
         stack.addChild(lbl);
     }
 }
-
+// { "Content-Type": "application/json; charset=UTF-8", "Access-Control-Allow-Origin": "*", "Access-Control-Allow-Methods": "GET, POST, OPTIONS", "Access-Control-Allow-Headers": "Content-Type", "Access-Control-Request-Headers": "X-Requested-With, accept, content-type" }
 export function loadAnn(args) {
     firebase.getCurrentUser().then((user) => {
-        const request = JSON.stringify({uid: user.uid});
-        console.log(request);
-        const page = <Page>args.object;
-        const stack = <StackLayout>page.getViewById("slayout");
-        const url = "https://fzwestboard.000webhostapp.com/getann.php";
-        const xmlhttp = new XMLHttpRequest();
-
-        xmlhttp.open("POST", url);
-        xmlhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-        xmlhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
-        xmlhttp.setRequestHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-        xmlhttp.setRequestHeader("Access-Control-Allow-Headers", "Content-Type");
-        xmlhttp.setRequestHeader("Access-Control-Request-Headers", "X-Requested-With, accept, content-type");
-
-        xmlhttp.onreadystatechange = function() {
+        http.request({
+            url: "https://fzwestboard.000webhostapp.com/getann.php",
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            content: JSON.stringify({ uid: user.uid })
+        }).then((result) => {
+            const page = <Page>args.object;
+            const stack = <StackLayout>page.getViewById("slayout");
             stack.removeChildren();
-            if (this.readyState === 4 && this.status === 200) {
-                const activityIndicator = <ActivityIndicator>page.getViewById("activityIndicator");
-                activityIndicator.visibility = "collapse";
-                const resobj = JSON.parse(this.responseText);
-                const count = resobj.title.length; // # of items in the array, not the # of characters in the title
-                let btn;
-                let lbl;
-                let onDate;
-                for (let i = 0; i < count; i++) {
-                    if (resobj.birth[i] !== onDate) {
-                        onDate = resobj.birth[i];
-                        lbl = new Label();
-                        lbl.class = "date";
-                        lbl.text = resobj.birth[i];
-                        stack.addChild(lbl);
-                    }
-                    btn = new Button();
-                    btn.text = "[" + resobj.club[i] + "] " + resobj.title[i];
-                    btn.backgroundColor = resobj.color[i];
-                    btn.on(Button.tapEvent, () => {
+            const resobj = JSON.parse(result.content);
+            const activityIndicator = <ActivityIndicator>page.getViewById("activityIndicator");
+            activityIndicator.visibility = "collapse";
+            const count = resobj.title.length; // # of items in the array, not the # of characters in the title
+            let btn;
+            let lbl;
+            let onDate;
+            for (let i = 0; i < count; i++) {
+                if (resobj.birth[i] !== onDate) {
+                    onDate = resobj.birth[i];
+                    lbl = new Label();
+                    lbl.class = "date";
+                    lbl.text = resobj.birth[i];
+                    stack.addChild(lbl);
+                }
+                btn = new Button();
+                btn.text = "[" + resobj.club[i] + "] " + resobj.title[i];
+                btn.backgroundColor = resobj.color[i];
+                btn.on(Button.tapEvent, () => {
                     dialogs.alert({
                         title: resobj.club[i],
                         message: resobj.desc[i],
                         okButtonText: "Close"
                     });
                 });
-                    stack.addChild(btn);
+                stack.addChild(btn);
             }
-        }
-    };
-        xmlhttp.send(request);
+        }, (error) => {
+            console.error(JSON.stringify(error));
+        });
     }, (error) => {
         alert("FB ERROR: " + error);
     });

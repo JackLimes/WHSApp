@@ -1,4 +1,5 @@
 import { EventData } from "data/observable";
+import observableModule = require("data/observable");
 import firebase = require("nativescript-plugin-firebase");
 import { RadSideDrawer } from "nativescript-pro-ui/sidedrawer";
 import { ActivityIndicator } from "tns-core-modules/ui/activity-indicator";
@@ -7,8 +8,10 @@ import { StackLayout } from "tns-core-modules/ui/layouts/stack-layout";
 import { topmost } from "ui/frame";
 import { NavigatedData, Page } from "ui/page";
 import { BrowseViewModel } from "./browse-view-model";
+const http = require("http");
+const gestures = require("ui/gestures");
 
-/* tslint:disable:prefer-conditional-expression */
+/* tslint:disable:prefer-conditional-expression jsdoc-format max-line-length*/
 
 /* ***********************************************************
 * Use the "onNavigatingTo" handler to initialize the page binding context.
@@ -38,70 +41,100 @@ export function onDrawerButtonTap(args: EventData) {
 }
 
 export function onLoad(args) {
-    getsubs();
     putClubs(args);
 }
 
 export function putClubs(args) {
     const page = <Page>args.object;
     const container = <StackLayout>page.getViewById("clubContainer");
-    const url = "https://fzwestboard.000webhostapp.com/getclubs.php";
-    const xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", url);
-    xmlhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-    xmlhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
-    xmlhttp.setRequestHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-    xmlhttp.setRequestHeader("Access-Control-Allow-Headers", "Content-Type");
-    xmlhttp.setRequestHeader("Access-Control-Request-Headers", "X-Requested-With, accept, content-type");
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState === 4 && this.status === 200) {
-            console.log("I'm inside the putclubs" + sublist);
-            const jsondata = JSON.parse(this.responseText);
-            console.log(this.responseText);
-            const length = jsondata.name.length;
-            for (let i = 0; i < length; i++) {
-                console.log("in for loop");
-                const stack = new StackLayout();
-                const title = new Label();
-                title.className = "title";
-                title.textWrap = true;
-                const desc = new Label();
-                desc.className = "desc";
-                desc.textWrap = true;
-                title.text = jsondata.name[i];
-                desc.text = jsondata.desc[i];
-                stack.addChild(title);
-                stack.addChild(desc);
-                console.log("starting in");
-                let subscribed = jsondata.id[i] in sublist;
-                console.log("finished that" + subscribed);
+    let length;
+    let titles;
+    let descs;
+    let ids;
+    let sublist;
+    // let sublist;
+    firebase.getCurrentUser().then((user) => {
+        http.request({
+            url: "https://fzwestboard.000webhostapp.com/getclubs.php",
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            content: JSON.stringify({ uid: user.uid })
+        }).then((result) => { // initialize first
+            console.log(result.content);
+            const resobj = JSON.parse(result.content);
+            length = resobj.name.length;
+            titles = resobj.name;
+            descs = resobj.desc;
+            ids = resobj.id;
 
-                stack.on("tap", () => {
-                    if (subscribed === false) { // talk with db
-                        subscribed = true;
-                        subscribe(jsondata.id[i]);
+            http.request({
+                url: "https://fzwestboard.000webhostapp.com/subcheck.php",
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                content: JSON.stringify({ uid: user.uid })
+            }).then((subresult) => { // initialize first
+                const subresobj = JSON.parse(subresult.content);
+                console.log("subcheck list: " + subresobj);
+                sublist = subresobj;
+                for (let i = 0; i < length; i++) {
+                    const stack = new StackLayout();
+                    const title = new Label();
+                    title.className = "title";
+                    title.textWrap = true;
+                    const desc = new Label();
+                    desc.className = "desc";
+                    desc.textWrap = true;
+                    title.text = titles[i];
+                    desc.text = descs[i];
+                    stack.on("tap", () => {
                         stack.backgroundColor = "#48f442";
+                        console.log("tapped");
+                        http.request({
+                            url: "https://fzwestboard.000webhostapp.com/subscribe.php",
+                            method: "POST",
+                            headers: { "Content-Type": "application/json" },
+                            content: JSON.stringify({ uid: user.uid, clubid: ids[i] })
+                        }).then((tapresult) => {
+                            console.log(JSON.stringify(tapresult));
+                            sublist = JSON.parse(tapresult.content);
+                            console.log("id: " + ids[i]);
+                            console.log("Sublist: " + sublist);
+                            console.log("boolean: " + ids[i] in sublist);
+                            if (ids[i] in sublist) { // set the color
+                                console.log(ids[i]);
+                                stack.backgroundColor = "#48f442"; // light green
+                            } else {
+                                console.log(ids[i]);
+                                stack.backgroundColor = "#FF46FF"; // white
+                            }
+                        }, (error) => {
+                            console.error(JSON.stringify(error));
+                        });
+                    });
+                    stack.addChild(title);
+                    stack.addChild(desc);
+
+                    if (ids[i] in sublist) { // set the color
+                        stack.backgroundColor = "#48f442"; // light green
                     } else {
-                        subscribed = false;
-                        unsubscribe(jsondata.id[i]);
-                        stack.backgroundColor = "#FFFFFF";
+                        stack.backgroundColor = "#FFFFFF"; // white
                     }
 
-                    getsubs(); // refresh sub list
-                });
-
-                if (subscribed) { // set the color
-                    stack.backgroundColor = "#48f442"; // light green
-                } else {
-                    stack.backgroundColor = "#FFFFFF"; // white
+                    const active = <ActivityIndicator>page.getViewById("activityIndicator");
+                    active.visibility = "collapse";
+                    container.addChild(stack);
                 }
-                const active = <ActivityIndicator>page.getViewById("activityIndicator");
-                active.visibility = "collapse";
-                container.addChild(stack);
-            }
-        }
-    };
-    xmlhttp.send();
+            }, (error) => {
+                console.error(JSON.stringify(error));
+            });
+
+        }, (error) => {
+            console.error(JSON.stringify(error));
+        });
+
+    }, (error) => {
+        alert("FB ERROR: " + error);
+    });
 }
 
 export function subscribe(clubidin) { // unfinished
@@ -120,64 +153,7 @@ export function subscribe(clubidin) { // unfinished
 
         xmlhttp.onreadystatechange = function() {
             if (this.readyState === 4 && this.status === 200) {
-                const resobj = JSON.parse(this.responseText);
-        }
-    };
-        xmlhttp.send(request);
-    }, (error) => {
-        alert("FB ERROR: " + error);
-    });
-}
-
-export function unsubscribe(clubidin) { // unfinished
-    firebase.getCurrentUser().then((user) => {
-        const request = JSON.stringify({uid: user.uid, clubid: clubidin});
-        console.log(request);
-        const url = "https://fzwestboard.000webhostapp.com/unsubscribe.php";
-        const xmlhttp = new XMLHttpRequest();
-
-        xmlhttp.open("POST", url);
-        xmlhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-        xmlhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
-        xmlhttp.setRequestHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-        xmlhttp.setRequestHeader("Access-Control-Allow-Headers", "Content-Type");
-        xmlhttp.setRequestHeader("Access-Control-Request-Headers", "X-Requested-With, accept, content-type");
-
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState === 4 && this.status === 200) {
-                const resobj = JSON.parse(this.responseText);
-        }
-    };
-        xmlhttp.send(request);
-    }, (error) => {
-        alert("FB ERROR: " + error);
-    });
-}
-
-let sublist;
-
-export function getsubs() { // unfinished
-    console.log("running getsubs");
-    firebase.getCurrentUser().then((user) => {
-        const request = JSON.stringify({uid: user.uid});
-        console.log(request);
-        const url = "https://fzwestboard.000webhostapp.com/subcheck.php";
-        const xmlhttp = new XMLHttpRequest();
-
-        xmlhttp.open("POST", url);
-        xmlhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-        xmlhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
-        xmlhttp.setRequestHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-        xmlhttp.setRequestHeader("Access-Control-Allow-Headers", "Content-Type");
-        xmlhttp.setRequestHeader("Access-Control-Request-Headers", "X-Requested-With, accept, content-type");
-
-        xmlhttp.onreadystatechange = function() {
-            console.log("ready");
-            if (this.readyState === 4 && this.status === 200) {
-                console.log("inside");
-                sublist = JSON.parse(this.responseText);
-                console.log("that's in");
-                console.log(sublist);
+                console.log(JSON.parse(this.responseText));
         }
     };
         xmlhttp.send(request);
