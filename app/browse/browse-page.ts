@@ -6,8 +6,10 @@ import { ActivityIndicator } from "tns-core-modules/ui/activity-indicator";
 import { Label } from "tns-core-modules/ui/label";
 import { StackLayout } from "tns-core-modules/ui/layouts/stack-layout";
 import { topmost } from "ui/frame";
-import { NavigatedData, Page } from "ui/page";
+import { NavigatedData, Page, getViewById } from "ui/page";
 import { BrowseViewModel } from "./browse-view-model";
+import { Button } from "tns-core-modules/ui/button/button";
+import { GridLayout } from "tns-core-modules/ui/layouts/grid-layout/grid-layout";
 const http = require("http");
 const gestures = require("ui/gestures");
 
@@ -81,13 +83,21 @@ export function putClubs(args) {
                     const title = new Label();
                     title.className = "title";
                     title.textWrap = true;
+                    title.col = 1;
                     const desc = new Label();
                     desc.className = "desc";
                     desc.textWrap = true;
+                    const subbutton = new Button();
+                    subbutton.width = 200;
+                    subbutton.horizontalAlignment = "right";
+                    subbutton.borderRadius = 15;
+                    subbutton.borderWidth = 4;
+                    subbutton.marginRight = 15;
+                    subbutton.text = "Subscribe"
                     title.text = titles[i];
-                    //desc.text = descs[i]; 
-                    stack.on("tap", () => {
-                        stack.backgroundColor = "#48f442";
+                    // desc.text = descs[i]; 
+                    subbutton.on("tap", () => {
+                        
                         console.log("tapped");
                         http.request({
                             url: "https://fzwestboard.000webhostapp.com/subscribe.php",
@@ -102,21 +112,33 @@ export function putClubs(args) {
                             console.log("boolean: " + sublist.includes(ids[i]));
                             if (sublist.includes(ids[i])) { // set the color
                                 console.log(ids[i]);
-                                stack.backgroundColor = "#48f442"; // light green
+                                subbutton.backgroundColor = "#48f442"; // light green
+                                subbutton.borderColor = "#48f442";
+                                subbutton.text = "Subscribed";
                             } else {
                                 console.log(ids[i]);
-                                stack.backgroundColor = "#FFFFFF"; // white
+                                subbutton.borderColor = "#000000";
+                            
+                                subbutton.backgroundColor = "#FFFFFF"; // white
+                                subbutton.text = "Subscribe";
                             }
+                            
                         }, (error) => {
                             console.error(JSON.stringify(error));
                         });
                     });
+                   
                     stack.addChild(title);
-                    stack.addChild(desc);
+                    stack.addChild(subbutton);
+                    
                     if (sublist.includes(ids[i])) { // set the color
-                        stack.backgroundColor = "#48f442"; // light green
+                        subbutton.backgroundColor = "#48f442"; // light green
+                        subbutton.borderColor = "#48f442";
+                        subbutton.text = "Subscribed";
                     } else {
-                        stack.backgroundColor = "#FFFFFF"; // white
+                        subbutton.borderColor = "#000000";   
+                        subbutton.backgroundColor = "#FFFFFF"; // white
+                        subbutton.text = "Subscribe";
                     }
 
                     const active = <ActivityIndicator>page.getViewById("activityIndicator");
