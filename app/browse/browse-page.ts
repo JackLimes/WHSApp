@@ -2,14 +2,18 @@ import { EventData } from "data/observable";
 import observableModule = require("data/observable");
 import firebase = require("nativescript-plugin-firebase");
 import { RadSideDrawer } from "nativescript-pro-ui/sidedrawer";
+import * as colorModule from "tns-core-modules/color";
 import { ActivityIndicator } from "tns-core-modules/ui/activity-indicator";
+import { Button } from "tns-core-modules/ui/button/button";
 import { Label } from "tns-core-modules/ui/label";
+import { GridLayout } from "tns-core-modules/ui/layouts/grid-layout/grid-layout";
 import { StackLayout } from "tns-core-modules/ui/layouts/stack-layout";
 import { topmost } from "ui/frame";
-import { NavigatedData, Page, getViewById } from "ui/page";
+import { getViewById, NavigatedData, Page } from "ui/page";
 import { BrowseViewModel } from "./browse-view-model";
-import { Button } from "tns-core-modules/ui/button/button";
-import { GridLayout } from "tns-core-modules/ui/layouts/grid-layout/grid-layout";
+
+const Color = colorModule.Color;
+const gray = new Color("#c6c6c6");
 const http = require("http");
 const gestures = require("ui/gestures");
 
@@ -78,8 +82,11 @@ export function putClubs(args) {
                 const subresobj = JSON.parse(subresult.content);
                 console.log("subcheck list: " + subresobj);
                 sublist = subresobj;
+                let lastStack;
                 for (let i = 0; i < length; i++) {
                     const stack = new StackLayout();
+                    stack.borderBottomWidth = 2;
+                    stack.borderBottomColor = gray;
                     const title = new Label();
                     title.className = "title";
                     title.textWrap = true;
@@ -93,11 +100,11 @@ export function putClubs(args) {
                     subbutton.borderRadius = 15;
                     subbutton.borderWidth = 4;
                     subbutton.marginRight = 15;
-                    subbutton.text = "Subscribe"
+                    subbutton.text = "Subscribe";
                     title.text = titles[i];
-                    // desc.text = descs[i]; 
+                    // desc.text = descs[i];
+
                     subbutton.on("tap", () => {
-                        
                         console.log("tapped");
                         http.request({
                             url: "https://fzwestboard.000webhostapp.com/subscribe.php",
@@ -118,25 +125,28 @@ export function putClubs(args) {
                             } else {
                                 console.log(ids[i]);
                                 subbutton.borderColor = "#000000";
-                            
+
                                 subbutton.backgroundColor = "#FFFFFF"; // white
                                 subbutton.text = "Subscribe";
                             }
-                            
+
                         }, (error) => {
                             console.error(JSON.stringify(error));
                         });
                     });
-                   
+
                     stack.addChild(title);
                     stack.addChild(subbutton);
-                    
+                    const spacer = new Label();
+                    spacer.height = 10;
+                    stack.addChild(spacer);
+
                     if (sublist.includes(ids[i])) { // set the color
                         subbutton.backgroundColor = "#48f442"; // light green
                         subbutton.borderColor = "#48f442";
                         subbutton.text = "Subscribed";
                     } else {
-                        subbutton.borderColor = "#000000";   
+                        subbutton.borderColor = "#000000";
                         subbutton.backgroundColor = "#FFFFFF"; // white
                         subbutton.text = "Subscribe";
                     }
@@ -144,7 +154,9 @@ export function putClubs(args) {
                     const active = <ActivityIndicator>page.getViewById("activityIndicator");
                     active.visibility = "collapse";
                     container.addChild(stack);
+                    lastStack = stack;
                 }
+                lastStack.borderBottomWidth = 0;
             }, (error) => {
                 console.error(JSON.stringify(error));
             });
