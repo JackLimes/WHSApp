@@ -10,7 +10,7 @@ import { topmost } from "ui/frame";
 import { NavigatedData, Page } from "ui/page";
 import { HomeViewModel } from "./home-view-model";
 const http = require("http");
-/* tslint:disable:max-line-length jsdoc-format*/
+/* tslint:disable:max-line-length jsdoc-format no-bitwise*/
 
 /* ***********************************************************
 * Use the "onNavigatingTo" handler to initialize the page binding context.
@@ -97,7 +97,7 @@ export function loadAnn(args) {
                 }
                 btn = new Button();
                 btn.text = "[" + resobj.club[i] + "] " + resobj.title[i];
-                btn.backgroundColor = resobj.color[i];
+                btn.backgroundColor = getTintedColor(resobj.color[i], 150);
                 btn.on(Button.tapEvent, () => {
                     dialogs.alert({
                         title: resobj.club[i],
@@ -120,6 +120,20 @@ export function onLoaded(args) {
     console.log("loading announcments");
 }
 
-export function refresh(args) {
-return;
+// credits: richard maloney 2006, edited by Will Fleetwood 2018 for nativescript. must disable no-bitwise for tslint
+function getTintedColor(color, v) {
+    if (color.length > 6) { color = color.substring(1, color.length); }
+    const rgb = parseInt(color, 16);
+    let r = Math.abs(((rgb >> 16) & 0xFF) + v); if (r > 255) {r = r  - (r - 255); }
+    let g = Math.abs(((rgb >> 8) & 0xFF) + v); if (g > 255) {g = g - (g - 255); }
+    let b = Math.abs((rgb & 0xFF) + v); if (b > 255) {b = b - (b - 255); }
+
+    let newr = Number(r < 0 || isNaN(r)) ? 0 : ((r > 255) ? 255 : r).toString(16);
+    if (newr.valueOf() <= 9) {newr = "0" + newr; }
+    let newg = Number(g < 0 || isNaN(g)) ? 0 : ((g > 255) ? 255 : g).toString(16);
+    if (newg.valueOf() <= 9) {newg = "0" + g; }
+    let newb = Number(b < 0 || isNaN(b)) ? 0 : ((b > 255) ? 255 : b).toString(16);
+    if (b.valueOf() <= 9) { newb = "0" + b; }
+
+    return "#" + newr + newg + newb;
 }
