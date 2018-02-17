@@ -157,28 +157,3 @@ export function putClubs(args) {
         alert("FB ERROR: " + error);
     });
 }
-
-export function subscribe(clubidin) { // unfinished
-    firebase.getCurrentUser().then((user) => {
-        const request = JSON.stringify({uid: user.uid, clubid: clubidin});
-        console.log(request);
-        const url = "https://fzwestboard.000webhostapp.com/subscribe.php";
-        const xmlhttp = new XMLHttpRequest();
-
-        xmlhttp.open("POST", url);
-        xmlhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-        xmlhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
-        xmlhttp.setRequestHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-        xmlhttp.setRequestHeader("Access-Control-Allow-Headers", "Content-Type");
-        xmlhttp.setRequestHeader("Access-Control-Request-Headers", "X-Requested-With, accept, content-type");
-
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState === 4 && this.status === 200) {
-                console.log(JSON.parse(this.responseText));
-        }
-    };
-        xmlhttp.send(request);
-    }, (error) => {
-        alert("FB ERROR: " + error);
-    });
-}
