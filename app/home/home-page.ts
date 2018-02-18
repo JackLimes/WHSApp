@@ -97,7 +97,7 @@ export function loadAnn(args) {
                 }
                 btn = new Button();
                 btn.text = "[" + resobj.club[i] + "] " + resobj.title[i];
-                btn.backgroundColor = getTintedColor(resobj.color[i], 150);
+                btn.backgroundColor = getTintedColor(resobj.color[i], 120);
                 btn.on(Button.tapEvent, () => {
                     dialogs.alert({
                         title: resobj.club[i],
