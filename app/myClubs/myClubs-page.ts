@@ -125,7 +125,7 @@ export function putClubs(args) {
                 stack.addChild(spacer);
 
                 subbutton.borderColor = "#000000";
-                subbutton.backgroundColor = "#FF0000"; // white
+                subbutton.backgroundColor = "#FF0000"; // red
                 subbutton.text = "Unsubscribe";
 
                 const active = <ActivityIndicator>page.getViewById("activityIndicator");

@@ -1,5 +1,6 @@
 import { Component } from "@angular/core";
 import { EventData } from "data/observable";
+import firebase = require("nativescript-plugin-firebase");
 import { RadSideDrawer } from "nativescript-pro-ui/sidedrawer";
 import { Observable } from "tns-core-modules/data/observable";
 import { Button } from "tns-core-modules/ui/button";
@@ -13,6 +14,8 @@ import { ListPicker } from "ui/list-picker";
 import { NavigatedData, Page } from "ui/page";
 
 import { PostViewModel } from "./post-view-model";
+
+const http = require("http");
 
 /* ***********************************************************
 * Use the "onNavigatingTo" handler to initialize the page binding context.
@@ -54,6 +57,11 @@ export function postAnn() {
     const fDate = datePicker.year + "-" + datePicker.month + "-" + datePicker.day;
     const lPicker = <ListPicker>topmost().getViewById("listPicker");
     const hexColor = colorarr[lPicker.selectedIndex];
+    if (title.text === "" || desc.text === "") {
+        alert("You do not have both Field filled out.");
+
+        return;
+    }
 
     // Create object to pass to php
     // tslint:disable-next-line:max-line-length
@@ -77,37 +85,39 @@ export function postAnn() {
     xmlhttp.send(request);
 }
 
-export function onNavigatedTo() {
+export function onLoad(args) {
+    const page = <Page>args.object;
     // set date picker settings.
-    const datePicker = <DatePicker>topmost().getViewById("date");
+    const datePicker = <DatePicker>page.getViewById("date");
     const today = new Date();
     datePicker.date = today;
     datePicker.minDate = today;
-    getClubs();
+    getClubs(args);
 }
 
 // club name and color array intialize
 let clubarr;
 let colorarr;
 let clubidarr;
-export function getClubs() {
-    const url = "https://fzwestboard.000webhostapp.com/getclubs.php";
-    const xmlhttp = new XMLHttpRequest();
-    xmlhttp.open("POST", url);
-    xmlhttp.setRequestHeader("Content-Type", "application/json; charset=UTF-8");
-    xmlhttp.setRequestHeader("Access-Control-Allow-Origin", "*");
-    xmlhttp.setRequestHeader("Access-Control-Allow-Methods", "GET, POST, OPTIONS");
-    xmlhttp.setRequestHeader("Access-Control-Allow-Headers", "Content-Type");
-    xmlhttp.setRequestHeader("Access-Control-Request-Headers", "X-Requested-With, accept, content-type");
-    xmlhttp.onreadystatechange = function() {
-        if (this.readyState === 4 && this.status === 200) {
-            const jsondata = JSON.parse(this.responseText);
+export function getClubs(args) {
+    const page = <Page>args.object;
+    firebase.getCurrentUser().then((user) => {
+        http.request({
+            url: "https://fzwestboard.000webhostapp.com/getadminclubs.php",
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            content: JSON.stringify({ uid: user.uid })
+        }).then((result) => {
+            const jsondata = JSON.parse(result.content);
             clubarr = jsondata.name;
             colorarr = jsondata.color;
             clubidarr = jsondata.id;
-            const lPicker = <ListPicker>topmost().getViewById("listPicker");
+            const lPicker = <ListPicker>page.getViewById("listPicker");
             lPicker.items = clubarr;
-        }
-    };
-    xmlhttp.send();
+        }, (error) => {
+            console.error(JSON.stringify(error));
+        });
+    }, (error) => {
+        alert("FB ERROR: " + error);
+    });
 }

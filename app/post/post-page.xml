@@ -2,6 +2,7 @@
     class="page"
     navigatingTo="onNavigatingTo"  
     navigatedTo="onNavigatedTo"
+    loaded="onLoad"
     xmlns:nsDrawer="nativescript-pro-ui/sidedrawer"
     xmlns:drawer="shared/drawer"
     xmlns="http://schemas.nativescript.org/tns.xsd">
@@ -59,13 +60,13 @@
         -->
         <nsDrawer:RadSideDrawer.mainContent>
             <StackLayout id="mainStack">
+                <Button id="butt" text="Post Event" tap="postAnn" />
                 <TextField id="title" hint="Title"/>
                 <TextView id="desc" hint="Description"/>
                 <!--this date picker can be filled with any data. It will change to today's date upon the page loading (because I don't know how to code any better) -->
-                <ListPicker id="listPicker" selectedIndex="0" />
-                <StackLayout class="hr-light"></StackLayout> <!-- a small line to separate ui -->
                 <DatePicker id="date" day="15" month="5" year="2015" verticalAlignment="center"></DatePicker>
-                <Button id="butt" text="Post Event" tap="postAnn" />
+                <StackLayout class="hr-light"></StackLayout> <!-- a small line to separate ui -->
+                <ListPicker id="listPicker" selectedIndex="0" />
             </StackLayout>
         </nsDrawer:RadSideDrawer.mainContent>
     </nsDrawer:RadSideDrawer>
