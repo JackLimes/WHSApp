@@ -63,6 +63,12 @@ export function postAnn() {
         return;
     }
 
+    if (lPicker.items.length === 0) {
+        alert("You do not have access to any clubs to post from");
+
+        return;
+    }
+
     // Create object to pass to php
     // tslint:disable-next-line:max-line-length
     const request = JSON.stringify({title: title.text, club: clubarr[lPicker.selectedIndex], description: desc.text, birth: fDate, color: hexColor, clubid: clubidarr[lPicker.selectedIndex]});
@@ -93,6 +99,8 @@ export function onLoad(args) {
     datePicker.date = today;
     datePicker.minDate = today;
     getClubs(args);
+    const lPicker = <ListPicker>page.getViewById("listPicker");
+    console.log(lPicker.selectedIndex);
 }
 
 // club name and color array intialize

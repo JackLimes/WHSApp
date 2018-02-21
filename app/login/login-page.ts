@@ -4,11 +4,15 @@ import { RadSideDrawer } from "nativescript-pro-ui/sidedrawer";
 import { TextView } from "tns-core-modules/ui/text-view";
 import { topmost } from "ui/frame";
 import { NavigatedData, Page } from "ui/page";
+import { DrawerViewModel } from "../shared/drawer/drawer-view-model";
 import { LoginViewModel } from "./login-view-model";
 
 /* ***********************************************************
 * Use the "onNavigatingTo" handler to initialize the page binding context.
 *************************************************************/
+
+const http = require("http");
+const appSettings = require("application-settings");
 
 export function onNavigatingTo(args: NavigatedData) {
     /* ***********************************************************
@@ -27,10 +31,28 @@ export function authentificate(args: EventData) {
     firebase.login({
         type: firebase.LoginType.GOOGLE
       }).then(
-          (result) => {
+          (user) => {
             register();
-            topmost().navigate("home/home-page");
-            console.log("User ID: " + result.uid);
+            http.request({
+                url: "https://fzwestboard.000webhostapp.com/getadminclubs.php",
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                content: JSON.stringify({ uid: user.uid })
+            }).then((result) => {
+                const jsondata = JSON.parse(result.content);
+
+                console.log("Getclubs inside: " + jsondata.name.length);
+
+                appSettings.setNumber("adminCount", jsondata.name.length);
+
+                console.log("AppSetting: " + appSettings.getNumber("adminCount"));
+                topmost().navigate("home/home-page");
+                console.log("User ID: " + user.uid);
+
+            }, (error) => {
+                console.error(JSON.stringify(error));
+            });
+
           },
           (errorMessage) => {
             console.log(errorMessage);

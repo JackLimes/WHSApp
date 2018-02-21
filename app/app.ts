@@ -6,6 +6,7 @@ purpose of the file is to pass control to the app’s first module.
 import * as app from "application";
 import "./bundle-config";
 const firebase = require("nativescript-plugin-firebase");
+const appSettings = require("application-settings");
 
 firebase.init({
   // Optionally pass in properties for database, authentication and cloud messaging,
@@ -18,6 +19,8 @@ firebase.init({
     console.log(`firebase.init error: ${error}`);
   }
 );
+
+appSettings.setNumber("adminCount", 0);
 
 app.start({ moduleName: "login/login-page" });
 
