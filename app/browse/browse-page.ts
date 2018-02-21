@@ -94,6 +94,7 @@ export function putClubs(args) {
                     const desc = new Label();
                     desc.className = "desc";
                     desc.textWrap = true;
+                    desc.text = descs[i];
                     const subbutton = new Button();
                     subbutton.width = 200;
                     subbutton.horizontalAlignment = "right";
@@ -136,6 +137,7 @@ export function putClubs(args) {
                     });
 
                     stack.addChild(title);
+                    stack.addChild(desc);
                     stack.addChild(subbutton);
                     const spacer = new Label();
                     spacer.height = 10;
