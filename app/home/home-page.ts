@@ -87,6 +87,15 @@ export function loadAnn(args) {
             let btn;
             let lbl;
             let onDate;
+            if (count === 0) {
+                const lbl1 = new Label();
+                const lbl2 = new Label();
+                lbl1.text = "There are no announcements for you! Try subscribing to some clubs by going to 'browse clubs' in the sidebar!";
+                lbl1.textWrap = true;
+                lbl2.text = "<------";
+                stack.addChild(lbl1);
+                stack.addChild(lbl2);
+            }
             for (let i = 0; i < count; i++) {
                 if (resobj.birth[i] !== onDate) {
                     onDate = resobj.birth[i];
