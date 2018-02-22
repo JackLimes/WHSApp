@@ -65,7 +65,7 @@
                 <TextField id="title" hint="Title"/>
                 <TextView id="desc" hint="Description"/>
                 <!--this date picker can be filled with any data. It will change to today's date upon the page loading (because I don't know how to code any better) -->
-                <DatePicker id="date" day="15" month="5" year="2015" verticalAlignment="center"></DatePicker>
+                <DatePicker id="date" date="{{ today }}" verticalAlignment="center"></DatePicker>
                 <StackLayout class="hr-light"></StackLayout> <!-- a small line to separate ui -->
                 <ListPicker id="listPicker" selectedIndex="0" />
             </StackLayout>

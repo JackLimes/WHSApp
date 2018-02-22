@@ -109,7 +109,7 @@ export function loadAnn(args) {
                 btn = new Button();
                 btn.text = "[" + resobj.club[i] + "] " + resobj.title[i];
                 if (appSettings.getBoolean("colorblind")) {
-                    btn.backgroundColor = "white";
+                    btn.backgroundColor =  "#e9e9e9";
                 } else {
                     btn.backgroundColor = getTintedColor(resobj.color[i], 120);
                 }

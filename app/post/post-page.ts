@@ -96,11 +96,8 @@ export function onLoad(args) {
     // set date picker settings.
     const datePicker = <DatePicker>page.getViewById("date");
     const today = new Date();
-    datePicker.date = today;
     datePicker.minDate = today;
     getClubs(args);
-    const lPicker = <ListPicker>page.getViewById("listPicker");
-    console.log(lPicker.selectedIndex);
 }
 
 // club name and color array intialize
