@@ -106,6 +106,7 @@ export function putClubs(args) {
                     // desc.text = descs[i];
 
                     subbutton.on("tap", () => {
+                        subbutton.text = "processing...";
                         console.log("tapped");
                         http.request({
                             url: "https://fzwestboard.000webhostapp.com/subscribe.php",

@@ -10,6 +10,8 @@ import { topmost } from "ui/frame";
 import { NavigatedData, Page } from "ui/page";
 import { HomeViewModel } from "./home-view-model";
 const http = require("http");
+const appSettings = require("application-settings");
+
 /* tslint:disable:max-line-length jsdoc-format no-bitwise*/
 
 /* ***********************************************************
@@ -38,7 +40,7 @@ export function onNavigatingTo(args: NavigatedData) {
 export function onNavigatedTo(args: NavigatedData) {
     console.log("Navigated");
 }
-
+/* tslint:disable:prefer-conditional-expression */
 /* ***********************************************************
 * According to guidelines, if you have a drawer on your page, you should always
 * have a button that opens it. Get a reference to the RadSideDrawer view and
@@ -106,7 +108,11 @@ export function loadAnn(args) {
                 }
                 btn = new Button();
                 btn.text = "[" + resobj.club[i] + "] " + resobj.title[i];
-                btn.backgroundColor = getTintedColor(resobj.color[i], 120);
+                if (appSettings.getBoolean("colorblind")) {
+                    btn.backgroundColor = "white";
+                } else {
+                    btn.backgroundColor = getTintedColor(resobj.color[i], 120);
+                }
                 btn.on(Button.tapEvent, () => {
                     dialogs.alert({
                         title: resobj.club[i],

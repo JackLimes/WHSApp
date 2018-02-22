@@ -22,6 +22,10 @@ firebase.init({
 
 appSettings.setNumber("adminCount", 0);
 
+if (!appSettings.hasKey("colorblind")) {
+  appSettings.setBoolean("colorblind", false);
+}
+
 app.start({ moduleName: "login/login-page" });
 
 /*

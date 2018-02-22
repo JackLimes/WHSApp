@@ -2,8 +2,10 @@ import { EventData } from "data/observable";
 import { RadSideDrawer } from "nativescript-pro-ui/sidedrawer";
 import { topmost } from "ui/frame";
 import { NavigatedData, Page } from "ui/page";
-
+import { Switch } from "ui/switch";
 import { SettingsViewModel } from "./settings-view-model";
+
+const appSettings = require("application-settings");
 
 /* ***********************************************************
 * Use the "onNavigatingTo" handler to initialize the page binding context.
@@ -30,4 +32,13 @@ export function onNavigatingTo(args: NavigatedData) {
 export function onDrawerButtonTap(args: EventData) {
     const sideDrawer = <RadSideDrawer>topmost().getViewById("sideDrawer");
     sideDrawer.showDrawer();
+}
+
+export function onSwitchLoaded(args) {
+    const sw = <Switch>args.object;
+    sw.on("checkedChange", (args2) => {
+        console.log("checkedChange");
+        console.log(sw.checked);
+        appSettings.setBoolean("colorblind", sw.checked);
+    });
 }
